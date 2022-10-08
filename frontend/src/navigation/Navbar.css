@@ -1,0 +1,272 @@
+.NavbarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.NavbarContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1800px;
+    padding: 12px 0px;
+}
+
+.NavbarLeft{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+}
+
+.NavbarLeftLink{
+    color: black;
+    font-size: 1rem;
+    margin-right: 40px;
+    text-decoration: none;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.NavbarMid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.NavbarMidLogoDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.NavbarMidLogoDiv a{
+    text-align: center;
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: black;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.NavbarRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+}
+
+.NavbarRightLinkDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.NavbarRightLink{
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.NavbarRightLinkNumber{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    height: 30px;
+    width: 30px;
+    color: white;
+    background-color: black;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.NavbarRightLinkNumber p{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.NavbarRightIconDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.NavbarRightIcon{
+    width: 100%;
+}
+
+.DrawerNavMenuBtnDiv{
+    display: none;
+}
+
+.DrawerNav{
+    display: none;
+}
+
+.DrawerNone{
+    display: none;
+}
+
+@media(max-width: 1860px){
+    .NavbarContainer1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .NavbarContainer1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1460px){
+    .NavbarContainer1{
+        width: 1200px;
+    }
+
+    .NavbarLeft{
+        width: 40%;
+    }
+
+    .NavbarRight{
+        width: 40%;
+    }
+}
+
+@media(max-width: 1260px){
+    .NavbarContainer1{
+        width: 1100px;
+    }
+}
+
+@media(max-width: 1160px){
+    .NavbarContainer1{
+        width: 90%;
+    }
+
+    .NavbarLeft{
+        display: none;
+    }
+
+    .DrawerNavMenuBtnDiv{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 40%;
+    }
+
+    .DrawerNavMenuBtn{
+        width: 26px;
+    }
+
+    .DrawerNav{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 400px;
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background-color: #111;
+    }
+
+    .DrawerNavHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        padding: 23px 0px 23px 0px;
+    }
+
+    .DrawerNavHeader{
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .DrawerNavHeader p{
+        margin: 0px;
+    }
+
+    .DrawerNavHeaderIcon{
+        width: 25px;
+    }
+
+    .DrawerNavMenu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .DrawerNavMenuLink{
+        width: 400px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgb(47, 47, 47);
+    }
+
+    .DrawerNavMenuLink:nth-child(1){
+        border-top: 1px solid rgb(47, 47, 47);
+        padding-top: 30px;
+    }
+}
+
+@media(max-width: 480px){
+    .DrawerNav{
+        width: 100%;
+    }
+
+    .DrawerNavMenuLink{
+        width: 100%;
+    }
+
+    .DrawerNavMenu{
+        width: 100%;
+    }
+}
+
+@media(max-width: 580px){
+    .NavbarRightLink{
+        display: none;
+    }
+
+    .NavbarContainer1{
+        padding: 21px 0px;
+    }
+
+    .NavbarRightIconDiv{
+        margin-left: 15px;
+    }
+}
+
+@media(max-width: 420px){
+    #SearchIcon{
+        display: none;
+    }
+}
