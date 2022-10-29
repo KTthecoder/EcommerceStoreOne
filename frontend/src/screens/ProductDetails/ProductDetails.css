@@ -1,0 +1,364 @@
+.DetailsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 180px;
+}
+
+.DetailsContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1650px;
+    margin-top: 150px;
+    margin-bottom: 140px;
+}
+
+.DetailsLeft{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 55%;
+    overflow-x: scroll;
+}
+
+.DetailsLeftImgDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+}
+
+.DetailsLeftImg{
+    width: 100%;
+    margin-right: 30px;
+}
+
+.DetailsRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 45%;
+    flex-direction: column;
+    margin-top: 00px;
+}
+
+.DetailsRightSection{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    flex-direction: column;
+}
+
+.DetailsRightLink{
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    background-color: rgb(51, 122, 181);
+    border-radius: 5px;
+    margin: 0px 0px 30px 0px;
+}
+
+.DetailsRightH1{
+    margin: 0px 0px 15px 0px;
+    font-size: 1.7rem;
+}
+
+.DetailsRightPrice{
+    margin: 0px 0px 30px 0px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.DetailsRightH2{
+    margin: 0px 0px 20px 0px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.DetailsRightH22{
+    margin: 0px 0px 15px 0px;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.DetailsRightSectionSizes{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.DetailsRightSectionSizes p{
+    margin: 0px 15px 0px 0px;
+    padding: 0px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(137, 137, 137);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.DetailsRightBtn1{
+    width: 100%;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(51, 122, 181);
+    color: white;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.DetailsRightBtn2{
+    width: 100%;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #121212;
+    color: white;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.DetailsRightP{
+    font-size: 1.05rem;
+    line-height: 32px;
+}
+
+.DetailsRightSectionDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.DetailsRightSectionIcon{
+    width: 45px;
+    margin-right: 20px;
+}
+
+.DetailsRightP1{
+    font-size: 1rem;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.DetailsContainerMid{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1650px;
+    margin: -50px 0px 100px 0px;
+}
+
+.DetailsMidDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60%;
+    flex-direction: column;
+}
+
+.DetailsContainerBot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1650px;
+    flex-direction: column;
+}
+
+.DetailsContainerBotHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.DetailsContainerBotHeader h1{
+    margin: 0px 0px 50px 0px;
+}
+
+.DetailsContainerBotMain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+@media(max-width: 1860px){
+    .DetailsContainer1{
+        width: 1600px;
+    }
+
+    .DetailsContainerMid{
+        width: 1600px;
+    }
+
+    .DetailsContainerBot{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .DetailsContainer1{
+        width: 1400px;
+    }
+
+    .DetailsContainerMid{
+        width: 1400px;
+    }
+
+    .DetailsContainerBot{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .DetailsContainer1{
+        width: 1200px;
+    }
+
+    .DetailsContainerMid{
+        width: 1200px;
+    }
+
+    .DetailsContainerBot{
+        width: 1200px;
+    }
+
+    .DetailsMidDiv{
+        width: 80%;
+    }
+}
+
+@media(max-width: 1300px){
+    .DetailsContainer1{
+        width: 1100px;
+    }
+
+    .DetailsContainerMid{
+        width: 1100px;
+    }
+
+    .DetailsContainerBot{
+        width: 1100px;
+    }
+}
+
+@media(max-width: 1190px){
+    .DetailsContainer1{
+        width: 90%;
+    }
+
+    .DetailsContainerMid{
+        width: 90%;
+    }
+
+    .DetailsContainerBot{
+        width: 90%;
+    }
+
+    .DetailsContainerBotMain{
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 1020px){
+    .DetailsLeft{
+        width: 45%;
+    }
+
+    .DetailsRight{
+        width: 55%;
+    }
+}
+
+@media(max-width: 900px){
+    .DetailsLeft{
+        width: 100%;
+    }
+
+    .DetailsRight{
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 80px;
+    }
+
+    .DetailsContainer1{
+        flex-direction: column;
+    }
+
+    .DetailsLeftImgDiv{
+        height: 600px;
+        width: 400px;
+    }
+
+    .DetailsMidDiv{
+        margin-top: -20px;
+    }
+}
+
+@media(max-width: 700px){
+    .DetailsRightSection{
+        width: 100%;
+    }
+
+    .DetailsMidDiv{
+        width: 100%;
+    }
+}
+
+@media(max-width: 500px){
+    .DetailsLeftImg{
+        width: 350px;
+        height: 520px;
+    }
+
+    .DetailsLeftImgDiv{
+        width: 100%;
+        height: 520px;
+        margin-top: -30px;
+    }
+
+    .DetailsRight{
+        margin-top: 60px;
+    }
+}
+
+@media(max-width: 390px){
+    .DetailsLeftImg{
+        width: 250px;
+        height: 410px;
+    }
+
+    .DetailsLeftImgDiv{
+        width: 100%;
+        height: 410px;
+    }
+}

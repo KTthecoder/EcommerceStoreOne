@@ -1,0 +1,687 @@
+.CartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 180px;
+}
+
+.CartContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1650px;
+}
+
+.CartMain{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.CartMain1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1650px;
+}
+
+.CartMainLeft{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 67%;
+    flex-direction: column;
+}
+
+.CartMainHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.CartMainHeader p:nth-child(1){
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.CartMainHeader p:nth-child(2){
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.CartMainHeader p:nth-child(3){
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.CartMainDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid rgb(137, 137, 137);
+    padding: 50px 0px 30px 0px;
+}
+
+.CartMainDivLeft{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.CartMainDivLeftImgDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.CartMainDivLeftImg{
+    width: 100%;
+}
+
+.CartMainDivLeftInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60%;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-left: 32px;
+}
+
+.CartMainDivLeftInfo h1{
+    margin: 10px 0px 15px 0px;
+    font-size: 1.7rem;
+}
+
+.CartMainDivLeftInfo1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.CartMainDivLeftInfo1 p{
+    margin: 0px;
+    font-size: 0.9rem;
+}
+
+.CartMainDivLeftInfo1 p:nth-child(1){
+    margin: 0px 7px 0px 0px;
+}
+
+.CartMainDivMid{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 15%;
+}
+
+.CartMainDivMidInp{
+    margin: 10px 0px 0px 0px;
+    height: 42px;
+    width: 50%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 0px 8px 0px 13px; 
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(137, 137, 137);
+}
+
+.CartMainDivRight{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 15%;
+    flex-direction: column;
+}
+
+.CartMainDivRight p{
+    margin: 0px;
+}
+
+.CartMainDivRight p:nth-child(1){
+    margin: 10px 0px 0px 0px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.CartMainDivRight p:nth-child(2){
+    margin: 8px 0px 0px 0px;
+    font-size: 1rem;
+}
+
+.CartMainDivBtns{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 30%;
+}
+
+.CartMainDivBtn:nth-child(1){
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    border: 1px solid rgb(137, 137, 137);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 42px;
+    height: 42px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.CartMainDivBtn:nth-child(2){
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    border: 1px solid rgb(137, 137, 137);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 120px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.CartMainDivBtnIcon{
+    width: 20px;
+}
+
+.CartMainDivBtn p{
+    margin: 0px;
+}
+
+.CartMainButtonsDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    border-top: 1px solid black;
+    padding-top: 60px;
+    margin: 20px 0px 0px 0px;
+}
+
+.CartMainBtnDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.CartMainBtn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 10px;
+    width: 195px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.CartMainBtn:nth-child(2){
+    background-color: rgb(51, 122, 181);
+    border: 1px solid rgb(51, 122, 181);
+    width: 185px;
+}
+
+.CartMainBtn:nth-child(2) p{
+    color: white;
+}
+
+.CartMainBtnIcon{
+    width: 25px;
+}
+
+.CartMainRight{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 25%;
+    flex-direction: column;
+}
+
+.CartMainRightDiv1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 30px 30px;
+}
+
+.CartMainRightDiv1 h2{
+    margin: 0px 0px 20px 0px;
+}
+
+.CartMainRightDiv1InpDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.CartMainRightDiv1Inp{
+    outline: none;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid rgb(137, 137, 137);
+    font-size: 1rem;
+    height: 40px;
+    padding: 0px 15px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.CartMainRightDiv1InpDiv button{
+    outline: none;
+    border-radius: 0px 5px 5px 0px;
+    border-right: 1px solid rgb(51, 122, 181);
+    border-top: 1px solid rgb(51, 122, 181);
+    border-bottom: 1px solid rgb(51, 122, 181);
+    border-left: 0px;
+    font-size: 1rem;
+    height: 40px;
+    padding: 0px 20px;
+    margin: 0px;
+    background-color: rgb(51, 122, 181);
+    color: white;
+    cursor: pointer;
+}
+
+.CartMainRightDiv2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 30px 30px 0px 30px;
+    margin-top: 40px;
+}
+
+.CartMainRightDiv2Block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+}
+
+.CartMainRightDiv2Block p{
+    padding: 0px;
+    margin: 0px 0px 30px 0px;
+}
+
+.CartMainRightDiv2Block h2{
+    padding: 0px;
+    margin: 0px 0px 30px 0px;
+}
+
+.CartMainRightDiv2Block p:nth-child(1){
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.CartMainRightDiv2Block p:nth-child(2){
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.CartMainRightDiv2Button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(51, 122, 181);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 0px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+@media(max-width: 1860px){
+    .CartContainer1{
+        width: 1600px;
+    }
+
+    .CartMain1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .CartContainer1{
+        width: 1400px;
+    }
+
+    .CartMain1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .CartContainer1{
+        width: 1200px;
+    }
+
+    .CartMain1{
+        width: 1200px;
+    }
+
+    .CartMainLeft{
+        width: 60%;
+    }
+
+    .CartMainRight{
+        width: 33%;
+    }
+
+    .CartMainDivLeft{
+        width: 50%;
+    }
+
+    .CartMainDivMid{
+        width: 15%;
+    }
+
+    .CartMainDivRight{
+        width: 20%;
+    }
+
+    .CartMainDivBtns{
+        width: 15%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .CartMainHeader p:nth-child(1){
+        width: 50%;
+    }
+
+    .CartMainHeader p:nth-child(2){
+        width: 15%;
+    }
+
+    .CartMainHeader p:nth-child(3){
+        width: 20%;
+    }
+
+    .CartMainDivBtn:nth-child(1){
+        margin: 0px 0px 10px 0px;
+    }
+
+    .CartMainDivBtn:nth-child(2){
+        width: 100%;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .CartMainDivLeftInfo h1{
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width: 1520px){
+    .CartContainer1{
+        width: 1100px;
+    }
+
+    .CartMain1{
+        width: 1100px;
+    }
+
+    .CartMainDivBtn:nth-child(2){
+        width: 80%;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+}
+
+@media(max-width: 1190px){
+    .CartContainer1{
+        width: 90%;
+    }
+
+    .CartMain1{
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .CartMainLeft{
+        width: 100%;
+    }
+
+    .CartMainRight{
+        width: 100%;
+        margin-top: 60px;
+    }
+}
+
+@media(max-width: 700px){
+    .CartMainDivLeftImgDiv{
+        display: none;
+    }
+
+    .CartMainDivLeftInfo{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .CartMainDivLeft{
+        width: 40%;
+    }
+
+    .CartMainDivMid{
+        width: 20%;
+    }
+
+    .CartMainDivRight{
+        width: 20%;
+    }
+
+    .CartMainDivBtns{
+        width: 20%;
+    }
+
+    .CartMainHeader p:nth-child(1){
+        width: 40%;
+    }
+
+    .CartMainHeader p:nth-child(2){
+        width: 20%;
+    }
+
+    .CartMainHeader p:nth-child(3){
+        width: 20%;
+    }
+
+    .CartMainDivBtn:nth-child(2){
+        width: 70%;
+    }
+}
+
+@media(max-width: 670px){
+    .CartMainDivLeftInfo1{
+        flex-direction: column;
+    }
+
+    .CartMainDivLeftInfo1 p:nth-child(2){
+        margin-top: 8px;
+    }
+
+    .CartMainDivLeftInfo1 span{
+        display: none;
+    }
+}
+
+@media(max-width: 600px){
+    .CartMainDiv{
+        flex-wrap: wrap;
+    }
+
+    .CartMainDivBtns{
+        width: 100%;
+        margin-top: 30px;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .CartMainDivBtn:nth-child(1){
+        margin: 0px;
+    }
+
+    .CartMainDivBtn:nth-child(2){
+        margin: 0px 0px 0px 30px;
+        width: 150px;
+    }
+
+    .CartMainDivLeft{
+        width: 45%;
+    }
+
+    .CartMainDivMid{
+        width: 25%;
+    }
+
+    .CartMainDivRight{
+        width: 30%;
+    }
+
+    .CartMainHeader p:nth-child(1){
+        width: 45%;
+    }
+
+    .CartMainHeader p:nth-child(2){
+        width: 25%;
+    }
+
+    .CartMainHeader p:nth-child(3){
+        width: 30%;
+    }
+}
+
+@media(max-width: 600px){
+    .CartMainHeader{
+        display: none;
+    }
+
+    .CartMain1{
+        margin-top: -35px;
+    }
+
+    .CartMainDiv{
+        border: none;
+        margin-top: -20px;
+    }
+
+    .CartMainDivLeftImgDiv{
+        width: 40%;
+        display: flex;
+    }
+
+    .CartMainDivLeft{
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        border: none;
+    }
+
+    .CartMainDivLeftInfo{
+        width: 50%;
+    }
+
+    .CartMainDiv{
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid rgb(137, 137, 137);
+    }
+
+    .CartMainDivMid{
+        width: 50%;
+    }
+
+    .CartMainDivRight{
+        width: 50%;
+    }
+
+    .CartMainDivBtn:nth-child(2){
+        width: 50%;
+    }
+
+    .CartMainButtonsDiv{
+        border: none;
+    }
+}
+
+@media(max-width: 510px){
+    .CartMainButtonsDiv{
+        display: none;
+    }
+}
+
+@media(max-width: 440px){
+    .CartMainRightDiv1Inp{
+        width: 70%;
+    }
+
+    .CartMainRightDiv1InpDiv button{
+        width: 30%;
+    }
+
+    .CartMainRightDiv1{
+        text-align: center;
+    }
+}
+
+@media(max-width: 360px){
+    .CartMainRightDiv1Inp{
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .CartMainRightDiv1InpDiv button{
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .CartMainRightDiv1InpDiv{
+        flex-direction: column;
+    }
+
+    .CartMainBtnDiv{
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        width: 100%;
+    }
+}

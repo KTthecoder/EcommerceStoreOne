@@ -1,0 +1,24 @@
+.ShopHeaderBot{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.ShopHeaderLeftBot{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.ShopHeaderLeftBot h3{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 7px;
+}
+
+.ShopHeaderLeftBot p{
+    font-size: 1rem;
+    font-weight: 600;
+}

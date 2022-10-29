@@ -1,0 +1,163 @@
+.PaymentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 150px 0px 100px 0px;
+}
+
+.PaymentContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1650px;
+}
+
+.PaymentLeft{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 55%;
+}
+
+.PaymentRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    flex-direction: column;
+}
+
+.PaymentRightDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 25px 50px;
+    margin-bottom: 50px;
+}
+
+.PaymentRightDiv h2{
+    margin: 0px 0px 20px 0px;
+}
+
+.PaymentRightDiv p{
+    margin: 0px 0px 15px 0px;
+}
+
+.PaymentHeader{
+    display: none;
+}
+
+@media(max-width: 1860px){
+    .PaymentContainer1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .PaymentContainer1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .PaymentContainer1{
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1300px){
+    .PaymentContainer1{
+        width: 1100px;
+    }
+}
+
+@media(max-width: 1190px){
+    .PaymentContainer1{
+        width: 90%;
+    }
+
+    .PaymentRight{
+        width: 40%;
+    }
+
+    .PaymentLeft{
+        width: 52%;
+    }
+}
+
+@media(max-width: 1190px){
+    .PaymentRightDiv{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media(max-width: 900px){
+    .PaymentContainer1{
+        flex-direction: column-reverse;
+    }
+
+    .PaymentRight{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .PaymentLeft{
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .PaymentRightDiv{
+        width: 47%;
+    }
+
+    .PaymentContainer{
+        flex-direction: column;
+    }
+
+    .PaymentHeader{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 90%;
+        margin-bottom: 50px;
+        margin-top: -20px;
+    }
+
+    #PaymentHeaderH1{
+        display: none;
+    }
+}
+
+@media(max-width: 760px){
+    .PaymentRight{
+        flex-direction: column;
+    }
+
+    .PaymentRightDiv{
+        width: 100%;
+    }
+}
+
+@media(max-width: 435px){
+    .CheckoutRightDivTextSmall{
+        width: 100%;
+    }
+
+    .CheckoutRightDiv{
+        flex-wrap: wrap;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 20%;
+    }
+}

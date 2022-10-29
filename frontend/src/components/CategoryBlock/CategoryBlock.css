@@ -1,0 +1,297 @@
+.CategoryBlockDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 385px;
+    background-position: center;
+    background-size: cover;
+    height: 580px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.CategoryBlockDiv::before{
+    background-color: rgba(0, 0, 0, 0.34);
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.CategoryBlockDiv h1{
+    color: white;
+    position: relative;
+}
+
+@media(max-width: 1660px){
+    .CategoryBlockDiv{
+        width: 330px;
+        height: 550px;
+    }
+}
+
+@media(max-width: 1520px){
+    .CategoryBlockDiv{
+        width: 280px;
+        height: 510px;
+    }
+}
+
+@media(max-width: 1300px){
+    .CategoryBlockDiv{
+        width: 250px;
+        height: 470px;
+    }
+
+    .CategoryBlockDiv:nth-child(1){
+        margin-right: 20px;
+    }   
+
+    .CategoryBlockDiv:nth-child(2){
+        margin-right: 20px;
+    } 
+
+    .CategoryBlockDiv:nth-child(3){
+        margin-right: 20px;
+    } 
+
+    .CategoryBlockDiv:nth-child(4){
+        margin-right: 0px;
+    } 
+}
+
+@media(max-width: 950px){
+    .CategoryBlockDiv{
+        width: 410px;
+        height: 530px;
+    }
+
+    .CategoryBlockDiv:nth-child(1){
+        margin-right: 20px;
+    }   
+
+    .CategoryBlockDiv:nth-child(2){
+        margin-right: 0px;
+    } 
+
+    .CategoryBlockDiv:nth-child(3){
+        margin-right: 20px;
+    } 
+
+    .CategoryBlockDiv:nth-child(4){
+        margin-right: 0px;
+    } 
+}
+
+@media(max-width: 934px){
+    .CategoryBlockDiv{
+        width: 400px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 912px){
+    .CategoryBlockDiv{
+        width: 390px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 889px){
+    .CategoryBlockDiv{
+        width: 380px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 867px){
+    .CategoryBlockDiv{
+        width: 370px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 844px){
+    .CategoryBlockDiv{
+        width: 360px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 822px){
+    .CategoryBlockDiv{
+        width: 350px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 800px){
+    .CategoryBlockDiv{
+        width: 340px;
+        height: 530px;
+    }
+}
+
+@media(max-width: 778px){
+    .CategoryBlockDiv{
+        width: 330px;
+        height: 510px;
+    }
+}
+
+@media(max-width: 756px){
+    .CategoryBlockDiv{
+        width: 320px;
+        height: 510px;
+    }
+}
+
+@media(max-width: 734px){
+    .CategoryBlockDiv{
+        width: 310px;
+        height: 500px;
+    }
+}
+
+@media(max-width: 711px){
+    .CategoryBlockDiv{
+        width: 300px;
+        height: 500px;
+    }
+}
+
+@media(max-width: 689px){
+    .CategoryBlockDiv{
+        width: 290px;
+        height: 480px;
+    }
+}
+
+@media(max-width: 667px){
+    .CategoryBlockDiv{
+        width: 280px;
+        height: 480px;
+    }
+}
+
+@media(max-width: 645px){
+    .CategoryBlockDiv{
+        width: 270px;
+        height: 480px;
+    }
+}
+
+@media(max-width: 623px){
+    .CategoryBlockDiv{
+        width: 260px;
+        height: 480px;
+    }
+}
+
+@media(max-width: 600px){
+    .CategoryBlockDiv{
+        width: 250px;
+        height: 460px;
+    }
+}
+
+@media(max-width: 578px){
+    .CategoryBlockDiv{
+        width: 240px;
+        height: 460px;
+    }
+}
+
+@media(max-width: 556px){
+    .CategoryBlockDiv{
+        width: 230px;
+        height: 440px;
+    }
+}
+
+@media(max-width: 534px){
+    .CategoryBlockDiv{
+        width: 220px;
+        height: 420px;
+    }
+
+    .CategoryBlockDiv h1{
+        font-size: 1.8rem;
+    }
+}
+
+@media(max-width: 512px){
+    .CategoryBlockDiv{
+        width: 210px;
+        height: 400px;
+    }
+}
+
+@media(max-width: 489px){
+    .CategoryBlockDiv{
+        width: 200px;
+        height: 390px;
+    }
+}
+
+@media(max-width: 467px){
+    .CategoryBlockDiv{
+        width: 190px;
+        height: 370px;
+    }
+}
+
+@media(max-width: 445px){
+    .CategoryBlockDiv{
+        width: 180px;
+        height: 350px;
+    }
+
+    .CategoryBlockDiv h1{
+        font-size: 1.7rem;
+    }
+}
+
+@media(max-width: 423px){
+    .CategoryBlockDiv{
+        width: 100%;
+        height: 550px;
+    }
+
+    .CategoryBlockDiv:nth-child(1){
+        margin-right: 0px;
+    }   
+
+    .CategoryBlockDiv:nth-child(2){
+        margin-right: 0px;
+    } 
+
+    .CategoryBlockDiv:nth-child(3){
+        margin-right: 0px;
+    } 
+
+    .CategoryBlockDiv:nth-child(4){
+        margin-right: 0px;
+    } 
+}
+
+@media(max-width: 370px){
+    .CategoryBlockDiv{
+        width: 100%;
+        height: 500px;
+    }
+}
+
+@media(max-width: 320px){
+    .CategoryBlockDiv{
+        width: 100%;
+        height: 450px;
+    }
+}

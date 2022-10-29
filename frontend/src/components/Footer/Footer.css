@@ -1,0 +1,319 @@
+.FooterContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: rgb(16, 16, 16);
+    padding: 100px 0px 100px 0px;
+    flex-wrap: wrap;
+}
+
+.FooterContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1650px;
+    flex-wrap: wrap;
+}
+
+.ListsDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.List{
+    width: 45%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.ListHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.ListHeader h2{
+    color: whitesmoke;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+    width: 70%;
+    font-size: 20px;
+}
+
+.ListList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ListList li{
+    padding: 8px 0px;
+}
+
+.ListHref:hover{
+    color: rgb(15, 118, 173);
+}
+
+.ListHref{
+    color: grey;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.NewsletterDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 55%;
+    flex-direction: column;
+}
+
+.NewsletterHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.NewsletterHeader h2{
+    color: whitesmoke;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+    width: 60%;
+    font-size: 24px;
+}
+
+.NewsletterP{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.NewsletterP p{
+    color: grey;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    line-height: 30px;
+}
+
+.NewsletterFormDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.NewsletterInput{
+    font-size: 17px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    padding: 0px 20px 0px 20px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.NewsletterBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 80px;
+    color: white;
+    background-color: rgb(15, 118, 173);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.ProjectInfoDiv{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ProjectInfoDiv{
+    color: whitesmoke;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+@media(max-width: 1860px){
+    .FooterContainer1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .FooterContainer1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1550px){
+    .FooterContainer{
+        justify-content: center;
+    }
+
+    .ListsDiv{
+        width: 40%;
+    }
+
+    .NewsletterDiv{
+        width: 50%;
+    }
+
+    .ProjectInfoDiv{
+        width: 90%;
+    }
+}
+
+@media(max-width: 1520px){
+    .FooterContainer1{
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1300px){
+    .FooterContainer1{
+        width: 1100px;
+    }
+
+    .FooterContainer1{
+        align-items: flex-start;
+    }
+}
+
+@media(max-width: 1190px){
+    .FooterContainer1{
+        width: 90%;
+    }
+}
+
+@media(max-width: 1100px){
+    .List{
+        width: 100%;
+    }
+}
+
+@media(max-width: 980px){
+    .FooterContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ListsDiv{
+        width: 90%;
+    }
+
+    .NewsletterDiv{
+        width: 90%;
+        margin-top: 70px;
+    }
+
+    .ProjectInfoDiv{
+        width: 90%;
+        margin-top: 70px;
+    }
+}
+
+@media(max-width: 400px){
+    .FooterContainer{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .ListsDiv{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .List{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .NewsletterDiv{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .ListHeader{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .ListList{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ListHeader{
+        text-align: center;
+    }
+
+    .NewsletterHeader{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .NewsletterP{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .NewsletterP p{
+        width: 80%;
+    }
+
+    .NewsletterDiv{
+        margin-top: 20px;
+    }
+
+    .NewsletterFormDiv{
+        flex-direction: column;
+    }
+
+    .NewsletterInput{
+        margin: 20px 0px;
+    }
+
+    .ProjectInfoDiv{
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .ProjectInfoDiv p{
+        box-sizing: border-box;
+        padding: 0px 10px;
+    }
+}

@@ -1,0 +1,274 @@
+.HomeHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('../../static/images/banner1.jpg');
+    /* Photo by <a href="https://unsplash.com/@matt_sclarandis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Matt Sclarandis</a> on <a href="https://unsplash.com/s/photos/hoodie?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    position: relative;
+}
+
+.HomeHeader::before{
+    background-color: rgba(0, 0, 0, 0.322);
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.HomeHeader1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1650px;
+    flex-direction: column;
+}
+
+.HomeHeader1Text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    flex-direction: column;
+    position: relative;
+}
+
+.HomeHeader1Text h1{
+    color: white;
+    font-size: 3.8rem;
+    text-align: center;
+    margin: 30px 0px 0px 0px;
+    letter-spacing: 2px;
+}
+
+.HomeHeader1Text p{
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin: 30px 0px 40px 0px;
+    letter-spacing: 2px;
+}
+
+.HomeHeader1BtnDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.HomeHeader1Btn{
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 30px;
+    margin: 0px;
+}
+
+.HomeMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.HomeMain1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1650px;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.HomeMainSection{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.HomeMainSectionHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    padding: 60px 0px 80px 0px;
+}
+
+.HomeMainSectionHeader h2{
+    margin: 0px 0px 20px 0px;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+.HomeMainSectionHeader p{
+    margin: 0px;
+    font-size: 1rem;
+}
+
+.HomeMainSectionDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.HomeMainSectionCategory{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 430px;
+    background-position: center;
+    background-size: cover;
+    height: 620px;
+    position: relative;
+    cursor: pointer;
+}
+
+.HomeMainSectionCategory::before{
+    background-color: rgba(0, 0, 0, 0.34);
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.HomeMainSectionCategory h1{
+    color: white;
+    position: relative;
+}
+
+.HomeMainSectionMain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.HomeMainSectionFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 40px 0px 50px 0px;
+}
+
+.HomeMainSectionFooterLink{
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    padding: 16px 35px;
+    border: 1px solid #222;
+}
+
+@media(max-width: 1860px){
+    .HomeHeader1{
+        width: 1600px;
+    }
+
+    .HomeMain1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .HomeHeader1{
+        width: 1400px;
+    }
+
+    .HomeMain1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .HomeHeader1{
+        width: 1200px;
+    }
+
+    .HomeMain1{
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1300px){
+    .HomeHeader1{
+        width: 1100px;
+    }
+
+    .HomeMain1{
+        width: 1100px;
+    }
+}
+
+@media(max-width: 1190px){
+    .HomeHeader1{
+        width: 90%;
+    }
+
+    .HomeMain1{
+        width: 90%;
+    }
+}
+
+@media(max-width: 950px){
+    .HomeMainSectionDiv{
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 770px){
+    .HomeHeader1{
+        width: 90%;
+    }
+
+    .HomeHeader1Text{
+        width: 100%;
+    }
+
+    .HomeHeader1Text h1{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media(max-width: 500px){
+    .HomeHeader1Text h1{
+        font-size: 2.7rem;
+    }
+}
+
+@media(max-width: 350px){
+    .HomeHeader1Text h1{
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width: 320px){
+    .HomeHeader1Text h1{
+        font-size: 2.2rem;
+    }
+}

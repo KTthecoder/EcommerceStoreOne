@@ -1,0 +1,514 @@
+.ProductContainerBig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.ProductImgBig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 520px;
+    background-image: url('../../static/images/hoodie1.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+@media(max-width: 1660px){
+    .ProductContainerBig{
+        width: 323px;
+    }
+
+    .ProductImgBig{
+        height: 460px;
+    }
+}
+
+@media(max-width: 1520px){
+    .ProductContainerBig{
+        width: 280px;
+    }
+
+    .ProductImgBig{
+        height: 400px;
+    }
+}
+
+@media(max-width: 1300px){
+    .ProductContainerBig{
+        width: 253px;
+    }
+
+    .ProductImgBig{
+        height: 380px;
+    }
+}
+
+@media(max-width: 1190px){
+    .ProductContainerBig{
+        width: 240px;
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(4){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(8){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(12){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(16){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(20){
+        margin-right: 0px;
+    }
+
+    .ProductImgBig{
+        height: 360px;
+    }
+}
+
+@media(max-width: 1123px){
+    .ProductContainerBig{
+        width: 220px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 340px;
+    }
+}
+
+@media(max-width: 1078px){
+    .ProductContainerBig{
+        width: 200px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 310px;
+    }
+}
+
+@media(max-width: 989px){
+    .ProductContainerBig{
+        width: 250px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 380px;
+    }
+
+    .ProductContainerBig:nth-child(3){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(4){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(6){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(8){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(9){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(12){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(15){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(16){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(18){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(19){
+        margin-right: 30px;
+        display: none;
+    }
+
+    .ProductContainerBig:nth-child(20){
+        margin-right: 30px;
+        display: none;
+    }
+}
+
+@media(max-width: 899px){
+    .ProductContainerBig{
+        width: 230px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 350px;
+    }
+}
+
+@media(max-width: 833px){
+    .ProductContainerBig{
+        width: 210px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 340px;
+    }
+}
+
+@media(max-width: 766px){
+    .ProductContainerBig{
+        width: 190px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 310px;
+    }
+}
+
+@media(max-width: 700px){
+    .ProductContainerBig{
+        width: 290px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 430px;
+    }
+
+    .ShopHeader{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .ShopHeaderLeft{
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .ShopHeaderRight{
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 200px;
+        text-align: center;
+    }
+
+    .ProductContainerBig:nth-child(2){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(3){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(4){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(6){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(8){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(9){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(10){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(12){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(14){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(15){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(16){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(18){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(19){
+        margin-right: 30px;
+        display: none;
+    }
+
+    .ProductContainerBig:nth-child(20){
+        margin-right: 30px;
+        display: none;
+    }
+}
+
+@media(max-width: 700px){
+    .ProductContainerBig{
+        width: 265px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 410px;
+    }
+}
+
+@media(max-width: 622px){
+    .ProductContainerBig{
+        width: 245px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 380px;
+    }
+}
+
+@media(max-width: 578px){
+    .ProductContainerBig{
+        width: 230px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 360px;
+    }
+}
+
+@media(max-width: 544px){
+    .ProductContainerBig{
+        width: 210px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 330px;
+    }
+}
+
+@media(max-width: 500px){
+    .ProductContainerBig{
+        width: 195px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 300px;
+    }
+
+    .ShopHeaderLeft{
+        box-sizing: border-box;
+        padding: 0px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ShopHeaderLeft h1{
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 30px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 467px){
+    .ProductContainerBig{
+        width: 180px;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 280px;
+    }
+}
+
+@media(max-width: 435px){
+    .ProductContainerBig{
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 510px;
+    }
+
+    .ProductContainerBig:nth-child(1){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(2){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(3){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(4){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(5){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(6){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(7){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(8){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(9){
+        margin-right: 30px;
+    }
+
+    .ProductContainerBig:nth-child(10){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(11){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(12){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(13){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(14){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(15){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(16){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(17){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(18){
+        margin-right: 0px;
+    }
+
+    .ProductContainerBig:nth-child(19){
+        margin-right: 0px;
+        display: flex;
+    }
+
+    .ProductContainerBig:nth-child(20){
+        margin-right: 0px;
+        display: flex;
+    }
+}
+
+@media(max-width: 420px){
+    .ShopContainer1{
+        margin-top: 0px;
+    }
+}
+
+@media(max-width: 390px){
+    .ProductContainerBig{
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 490px;
+    }
+}
+
+@media(max-width: 360px){
+    .ProductContainerBig{
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 460px;
+    }
+}
+
+@media(max-width: 330px){
+    .ProductContainerBig{
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 430px;
+    }
+}
+
+@media(max-width: 300px){
+    .ProductContainerBig{
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .ProductImgBig{
+        height: 400px;
+    }
+}

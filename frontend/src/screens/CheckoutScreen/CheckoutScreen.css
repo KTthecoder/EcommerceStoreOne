@@ -1,0 +1,414 @@
+.CheckoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CheckoutContainer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1650px;
+    margin-top: 40px;
+    margin-bottom: 180px;
+}
+
+.CheckoutLeft{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    flex-direction: column;
+}
+
+.CheckoutLeftDouble{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+}
+
+.CheckoutLeftDoubleInpDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 48%;
+    flex-direction: column;
+}
+
+.CheckoutLeftDoubleInpDiv1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 48%;
+    flex-direction: column;
+}
+
+.CheckoutLeftDoubleInpDivv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 48%;
+    flex-direction: column;
+}
+
+.CheckoutLeftDoubleInpDivv1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 48%;
+    flex-direction: column;
+}
+
+.CheckoutLeftDoubleInpDiv1 p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0px 15px 0px;
+}
+
+.CheckoutLeftDoubleInpDiv p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0px 15px 0px;
+}
+
+.CheckoutLeftDoubleInpDivv1 p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 15px 0px;
+}
+
+.CheckoutLeftDoubleInpDivv p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 15px 0px;
+}
+
+.CheckoutLeftDoubleInp{
+    width: 100%;
+    margin: 0px 0px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.CheckoutLeftSingle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.CheckoutLeftSingeInpDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CheckoutLeftSingeInpDiv p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0px 15px 0px;
+}
+
+.CheckoutLeftSingleInp{
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.CheckoutLeftBot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.CheckoutLeftBotBtnDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.CheckoutRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    flex-direction: column;
+    border: 1px solid rgb(137, 137, 137);
+    box-sizing: border-box;
+    padding: 45px;
+    border-radius: 5px;
+    /* background-color: rgb(250, 250, 250); */
+}
+
+.CheckoutRightHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.CheckoutRightHeader h1{
+    margin: 0px 0px 30px 0px;
+}
+
+.CheckoutRightMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CheckoutRightDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0px 0px 35px 0px;
+    padding: 35px 0px 0px 0px;
+    border-top: 1px solid rgb(137, 137, 137);
+}
+
+.CheckoutRightDiv:last-child{
+    margin: 0px;
+}
+
+.CheckoutRightDivImgDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+.CheckoutRightDivImg{
+    width: 100%;
+}
+
+.CheckoutRightDivText{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60%;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.CheckoutRightDivText h1{
+    font-size: 1.2rem;
+    margin: 0px;
+}
+
+.CheckoutRightDivText1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.CheckoutRightDivText1 p{
+    margin: 10px 0px 0px 0px;
+}
+
+.CheckoutRightDivText1 p:nth-child(1){
+    margin-right: 8px;
+}
+
+.CheckoutRightDivTextSmall{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 30%;
+}
+
+.CheckoutRightDivTextSmall p{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.CheckoutRightDivPrice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid rgb(137, 137, 137);
+}
+
+.CheckoutRightDivPrice h2{
+    margin: 30px 0px 0px 0px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.CheckoutRightDivPrice p{
+    margin: 30px 0px 0px 0px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.CartMainBtn2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    border-radius: 10px;
+    border: 1px solid rgb(137, 137, 137);
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+@media(max-width: 1860px){
+    .CheckoutContainer1{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .CheckoutContainer1{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .CheckoutContainer1{
+        width: 1200px;
+    }
+}
+
+@media(max-width: 1300px){
+    .CheckoutContainer1{
+        width: 1100px;
+    }
+
+    .CheckoutLeft{
+        width: 50%;
+    }
+
+    .CheckoutRight{
+        width: 45%;
+    }
+}
+
+@media(max-width: 1190px){
+    .CheckoutContainer1{
+        width: 90%;
+    }
+}
+
+@media(max-width: 1050px){
+    .CheckoutContainer1{
+        flex-direction: column;
+    }
+
+    .CheckoutContainer1{
+        width: 90%;
+    }
+
+    .CheckoutLeft{
+        width: 100%;
+    }
+
+    .CheckoutRight{
+        width: 100%;
+        margin-top: 100px;
+    }
+}
+
+@media(max-width: 900px){
+    .CheckoutRightDivImgDiv{
+        width: 100px;
+    }
+}
+
+@media(max-width: 700px){
+    .CheckoutContainer1{
+        margin-top: -30px;
+    }
+}
+
+@media(max-width: 600px){
+    .CheckoutRight{
+        display: none;
+    }
+}
+
+@media(max-width: 500px){
+    .CheckoutLeft{
+        flex-direction: column;
+    }
+
+    .CheckoutLeftDoubleInpDivv{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .CheckoutLeftDouble{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .CheckoutLeftDoubleInpDivv1{
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .CheckoutLeftDoubleInp{
+        width: 100%;
+    }
+
+    .CheckoutLeftDoubleInpDiv{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .CheckoutLeftDoubleInpDiv1{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .CheckoutLeftBotBtnDiv{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .CartMainBtn2{
+        width: 165px;
+    }
+
+    .CartMainBtn{
+        width: 160px;
+        margin-top: 30px;
+    }
+
+    .CartMainBtnIcon{
+        display: none;
+    }
+
+    .CartMainBtn2{
+        text-align: center;
+        justify-content: center;
+    }
+}

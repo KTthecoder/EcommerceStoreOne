@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import SearchIcon from '../static/icons/search.png'
 import AccountIcon from '../static/icons/account.png'
 import MenuIcon from '../static/icons/menu.png'
@@ -8,6 +8,23 @@ import './Navbar.css'
 
 export const Navbar = () => {
     const [show, setShow] = useState(false)
+    const [showSearch, setShowSearch] = useState(false)
+    const location = useLocation()
+
+    const ToggleSearch = () => {
+        if(showSearch == false){
+            setShowSearch(true)
+        }
+        else{
+            setShowSearch(false)
+        }
+    }
+
+    useEffect(() => {
+        setShow(false)
+        setShowSearch(false)
+    }, [location])
+    
 
     return (
         <div className='NavbarContainer'>
@@ -19,10 +36,17 @@ export const Navbar = () => {
                         {/* <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a> */}
                     </div>
                     <div className='DrawerNavMenu'>
+                        <div className='NavbarSearchBarr'>
+                            <div className='NavbarSearchBar1'>
+                                <img src={SearchIcon} className='NavbarSearchRightIcon' alt='Search Icon' />
+                                {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
+                                <input type='text' className='NavbarSearchBarInp' placeholder='Search...' />
+                            </div>
+                        </div>
                         <Link to='/shop' className='DrawerNavMenuLink'>Shop</Link>
                         <Link to='/categories' className='DrawerNavMenuLink'>Categories</Link>
                         <Link to='/newest' className='DrawerNavMenuLink'>Newest</Link>
-                        <Link to='/on-sale' className='DrawerNavMenuLink'>On Sale</Link>
+                        <Link to='/on-sale' className='DrawerNavMenuLink'>On Sale</Link> 
                     </div>
                 </div>
                 <div className='DrawerNavMenuBtnDiv'>
@@ -50,10 +74,17 @@ export const Navbar = () => {
                         <img src={AccountIcon} className='NavbarRightIcon' alt='Account Icon' />
                         {/* <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a> */}
                     </Link>
-                    <div className='NavbarRightIconDiv' id='SearchIcon'>
+                    <div className='NavbarRightIconDiv' id='SearchIcon' onClick={ToggleSearch}>
                         <img src={SearchIcon} className='NavbarRightIcon' alt='Search Icon' />
                         {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
                     </div>
+                </div>
+            </div>
+            <div className={showSearch ? 'NavbarSearchBar' : 'NavbarSearchNone'}>
+                <div className='NavbarSearchBar1'>
+                    <img src={SearchIcon} className='NavbarSearchRightIcon' alt='Search Icon' />
+                    {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
+                    <input type='text' className='NavbarSearchBarInp' placeholder='Search...' />
                 </div>
             </div>
         </div>
