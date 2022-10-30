@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 
 # Size Choice
 size_choice = (
-    ('S', 'S'),
-    ('M', 'M'),
-    ('L', 'L'),
-    ('XL', 'XL')
+    ('S', 's'),
+    ('M', 'm'),
+    ('L', 'l'),
+    ('XL', 'xl')
 )
 
 color_choice = (
@@ -55,7 +55,7 @@ class ProductModel(models.Model):
         return self.name
 
 # Product Images List
-class ProductImages(models.Model):
+class ProductImagesModel(models.Model):
     image = models.ImageField(upload_to='productDetailsImgs')
     alt = models.CharField(max_length=150)
 
@@ -84,11 +84,11 @@ class OrderItemModel(models.Model):
     quantity = models.IntegerField(default=0, null=True, blank=True)
 
     size = models.CharField(max_length=2, choices=size_choice, blank=False, null=True)
-    order = models.ForeignKey(OrderModel, related_name='orderitem', null=True, blank=True, on_delete=models.CASCADE)
+    order = models.ForeignKey(OrderModel, related_name='orderItem', null=True, blank=True, on_delete=models.CASCADE)
     product = models.ForeignKey(ProductModel, on_delete=models.SET_NULL, blank=False, null=True)
 
     def __str__(self):
-        return "Order " + str(self.order.id)
+        return "Order " + str(self.order.id) + ", " + str(self.product.name)
 
     @property
     def item_total(self):
@@ -98,7 +98,7 @@ class OrderItemModel(models.Model):
             return float(self.product.regularPrice) * float(self.quantity)
 
 # Shipping Address Model
-class ShippingAddress(models.Model):
+class ShippingAddressModel(models.Model):
     name = models.CharField(max_length=150, blank=False, null=True)
     lastName = models.CharField(max_length=150, blank=False, null=True)
     address = models.CharField(max_length=200, blank=False, null=True)
