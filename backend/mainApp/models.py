@@ -41,7 +41,7 @@ class ProductModel(models.Model):
     sizeS = models.IntegerField()
     isSizeS = models.BooleanField()
     sizeM = models.IntegerField()
-    isSizeM = models.BooleanField()
+    isSizeM = models.BooleanField() 
     sizeL = models.IntegerField()
     isSizeL = models.BooleanField()
     sizeXL = models.IntegerField()

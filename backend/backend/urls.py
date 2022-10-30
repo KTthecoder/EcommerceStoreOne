@@ -18,11 +18,21 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from mainApp.views import *
+from cartApp.views import *
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/home', HomePage, name='HomePage'),
 
+    path('api/', ApiList, name='ApiList'),
+
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    path('api/home', HomePage, name='HomePage'),
     path('api/all-products', AllProducts, name='AllProducts'),
     path('api/products/filter-by-size/<str:size>', ProductsBySize, name='ProductsBySize'),
     path('api/products/filter-by-color/<str:color>', ProductsByColor, name='ProductsByColor'),
@@ -30,5 +40,7 @@ urlpatterns = [
     path('api/products/on-sale', ProductsOnSale, name='ProductsOnSale'),
 
     path('api/all-categories', AllCategories, name='AllCategories'),
+
+    path('api/cart', CartPage, name='CartPage'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

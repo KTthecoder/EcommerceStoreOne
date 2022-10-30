@@ -1,10 +1,31 @@
-from os import stat
-from django.shortcuts import render
 from .models import *
 from .serializers import *
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+
+# API List return list of all available reguests
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def ApiList(request):
+    if request.method == 'GET':
+        context = {
+            'JWT' : 'api/token/',
+            'JWT-Refresh' : 'api/token/refresh/',
+            'HomePage' : 'api/home',
+            'AllProducts' : 'api/all-products',
+            'ProductsBySize' : 'api/products/filter-by-size/<str:size>',
+            'ProductsByColor' : 'api/products/filter-by-color/<str:color>',
+            'ProductsSorting' : 'api/products/order-by/<str:sortMethod>',
+            'ProductsOnSale' : 'api/products/on-sale',
+            'AllCategories' : 'api/all-categories',
+        }
+        return Response(context, status=status.HTTP_200_OK)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
 
 # HomePage shows all categories and all products if exists if not it shows error
 @api_view(['GET'])
@@ -22,7 +43,8 @@ def HomePage(request):
 
         return Response([categoriesSerializer.data, prodcutsSerializer.data], status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # All Products show list of all products if exists else return the error message
@@ -38,7 +60,8 @@ def AllProducts(request):
         prodcutsSerializer = ProductSerializer(products, many = True)
         return Response(prodcutsSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Products By Size checks if product have size if has try to find products that have this size if not returns error
@@ -79,7 +102,8 @@ def ProductsBySize(request, size):
 
         return Response(productsSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Products By Color checks if product have color if has try to find products that have this color if not returns error
@@ -127,7 +151,8 @@ def ProductsByColor(request, color):
 
         return Response(productsSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Products Sorting show product ordered by method given if there's no method gives error
@@ -161,7 +186,8 @@ def ProductsSorting(request, sortMethod):
 
         return Response(productsSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Products On Sale shows products on sale if there are any but if not shows error message
@@ -177,7 +203,8 @@ def ProductsOnSale(request):
 
         return Response(productsSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 # All Categories show list of all categories if exists else return the error message
@@ -193,6 +220,7 @@ def AllCategories(request):
         categoriesSerializer = ProductCategorySerializer(categories, many = True)
         return Response(categoriesSerializer.data, status=status.HTTP_200_OK)
     else:
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
