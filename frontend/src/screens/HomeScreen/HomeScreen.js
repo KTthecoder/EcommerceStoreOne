@@ -7,9 +7,12 @@ import Hoodie1Img from '../../static/images/hoodie1.jpg'
 import Bot1Img from '../../static/images/bot1.jpg'
 import wallet1Img from '../../static/images/wallet1.jpg'
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock'
+import useFetch from '../../hooks/useFetch'
 
 export const HomeScreen = () => {
-  
+
+  const { data, error, isLoading } = useFetch('http://127.0.0.1:8000/api/all-products')
+
   return (
     <div className='HomeContainer'>
       <div className='HomeHeader'>

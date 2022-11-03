@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # API List return list of all available reguests
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def ApiList(request):
     if request.method == 'GET':
         context = {
@@ -19,7 +19,11 @@ def ApiList(request):
             'ProductsByColor' : 'api/products/filter-by-color/<str:color>',
             'ProductsSorting' : 'api/products/order-by/<str:sortMethod>',
             'ProductsOnSale' : 'api/products/on-sale',
-            'AllCategories' : 'api/all-categories',
+            'CartPage' : 'api/cart',
+            'AddProduct' : 'api/cart/add/<int:productId>/<str:size>',
+            'RemoveProduct' : 'api/cart/remove/<int:orderItemId>',
+            'AddShippingAddress' : 'api/cart/shipping-address',
+            'PaymentPage' : 'api/cart/payment',
         }
         return Response(context, status=status.HTTP_200_OK)
     else:
