@@ -7,11 +7,11 @@ import Hoodie1Img from '../../static/images/hoodie1.jpg'
 import Bot1Img from '../../static/images/bot1.jpg'
 import wallet1Img from '../../static/images/wallet1.jpg'
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock'
-import useFetch from '../../hooks/useFetch'
+import useFetchGet from '../../hooks/useFetchGet'
 
 export const HomeScreen = () => {
 
-  const { data, error, isLoading } = useFetch('http://127.0.0.1:8000/api/all-products')
+  const { data, error, isLoading } = useFetchGet('http://127.0.0.1:8000/api/home')
 
   return (
     <div className='HomeContainer'>
@@ -34,10 +34,11 @@ export const HomeScreen = () => {
               <p>Suspendisse vitae mi sed urna tristique pretium sed at nisl. Sed convallis gravida quam, eget tempor augue interdum</p>
             </div>
             <div className='HomeMainSectionDiv'>
-              <CategoryBlock img={Tee1Img} name="Tees"/>
-              <CategoryBlock img={Hoodie1Img} name="Hoodies"/>
-              <CategoryBlock img={Bot1Img} name="Bottoms"/>
-              <CategoryBlock img={wallet1Img} name="Accesories"/>
+              {data && data[0].map((item) => (
+                <div key={item.id}>
+                  <CategoryBlock img={item.img} name={item.name} slug={item.slug}/>
+                </div>
+              ))}
             </div>
           </div>
           <div className='HomeMainSection'>
@@ -46,7 +47,12 @@ export const HomeScreen = () => {
               <p>Vestibulum interdum lobortis dolor. Duis a bibendum ante, a maximus nibh. Fusce eleifend enim eget sem auctor, quis scelerisque est mattis.</p>
             </div>
             <div className='HomeMainSectionMain'>
-              <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
+              {data && data[1].map((item) => (
+                <div key={item.id}>
+                  <Product img={item.frontImage} name={item.name} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
+                </div>
+              ))}
+              {/* <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
               <Product img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
               <Product img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
               <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
@@ -55,7 +61,7 @@ export const HomeScreen = () => {
               <Product img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
               <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>   
               <Product img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
+              <Product img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/> */}
             </div>
             <div className='HomeMainSectionFooter'>
               <Link to='/' className='HomeMainSectionFooterLink'>See More Products</Link>
