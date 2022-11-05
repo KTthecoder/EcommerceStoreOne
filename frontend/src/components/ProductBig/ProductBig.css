@@ -5,6 +5,7 @@
     width: 380px;
     flex-direction: column;
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 .ProductImgBig{

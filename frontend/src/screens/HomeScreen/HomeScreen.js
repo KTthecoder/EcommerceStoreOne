@@ -52,16 +52,6 @@ export const HomeScreen = () => {
                   <Product img={item.frontImage} name={item.name} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
                 </div>
               ))}
-              {/* <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>   
-              <Product img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-              <Product img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/> */}
             </div>
             <div className='HomeMainSectionFooter'>
               <Link to='/' className='HomeMainSectionFooterLink'>See More Products</Link>

@@ -11,8 +11,8 @@ const Product = ({img, name, normalPrice, discountPrice, slug}) => {
       <div className='ProductInfo'>
         <h1 className='ProductInfoH1'>{name}</h1>
         <div className='ProductInfoPriceDiv'>
-          {discountPrice ? <p className='ProductInfoPrice'>${discountPrice}</p> : null}
-          <p className='ProductInfoDiscountPrice'>${normalPrice}</p>
+          {discountPrice ? <p className='ProductInfoPrice'>${normalPrice}</p> : null}
+          {discountPrice ? <p className='ProductInfoDiscountPrice'>${discountPrice}</p> : <p className='ProductInfoDiscountPrice'>${normalPrice}</p>}
         </div>
       </div>
     </div>
