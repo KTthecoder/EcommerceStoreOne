@@ -13,6 +13,7 @@ import ProfileScreen from '../screens/ProfileScreen/ProfileScreen'
 import RegisterScreen from '../screens/RegisterScreen/RegisterScreen'
 import SearchScreen from '../screens/SerachScreen/SearchScreen'
 import ShopScreen from '../screens/ShopScreen/ShopScreen'
+import PrivateRoute from '../utils/PrivateRoute'
 
 export const Navigation = () => {
   return (
@@ -22,7 +23,12 @@ export const Navigation = () => {
         <Route path='/categories' element={<CategoriesScreen/>} />
         <Route path='/newest' element={<NewestScreen/>} />
         <Route path='/on-sale' element={<OnSaleScreen/>} />
-        <Route path='/cart' element={<CartScreen/>} />
+
+        <Route exact path='/cart' element={<PrivateRoute/>}>
+          <Route path='/cart' element={<CartScreen/>} />
+        </Route>
+        
+
         <Route path='/search/:slug' element={<SearchScreen/>} />
         <Route path='/checkout' element={<CheckoutScreen/>} />
         <Route path='/login' element={<LoginScren/>} />

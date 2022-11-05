@@ -59,7 +59,7 @@ class ProductImagesModel(models.Model):
     image = models.ImageField(upload_to='productDetailsImgs')
     alt = models.CharField(max_length=150)
 
-    product = models.ForeignKey(ProductModel, on_delete=models.SET_NULL, blank=False, null=True)
+    product = models.ForeignKey(ProductModel, related_name='productimages', on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.image.url

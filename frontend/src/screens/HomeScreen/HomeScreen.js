@@ -2,16 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Product from '../../components/Product/Product'
 import './HomeScreen.css'
-import Tee1Img from '../../static/images/tee1.jpg'
-import Hoodie1Img from '../../static/images/hoodie1.jpg'
-import Bot1Img from '../../static/images/bot1.jpg'
-import wallet1Img from '../../static/images/wallet1.jpg'
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock'
 import useFetchGet from '../../hooks/useFetchGet'
 
 export const HomeScreen = () => {
 
-  const { data, error, isLoading } = useFetchGet('http://127.0.0.1:8000/api/home')
+  const { data } = useFetchGet('http://127.0.0.1:8000/api/home')
 
   return (
     <div className='HomeContainer'>

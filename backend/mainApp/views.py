@@ -67,6 +67,22 @@ def AllProducts(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
+# Product Details show product by slug
+@api_view(['GET'])
+def ProductDetails(request, slug):
+    if request.method == 'GET':
+        try:
+            product = ProductModel.objects.get(slug = slug)
+        except ProductModel.DoesNotExist:
+            data = {'Error' : 'ProductModel is empty'}
+            return Response(data, status=status.HTTP_200_OK)
+
+        prodcutsDetailsSerializer = ProductDetailsSerializer(product)
+        return Response(prodcutsDetailsSerializer.data, status=status.HTTP_200_OK)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
 
 # Products By Size checks if product have size if has try to find products that have this size if not returns error
 @api_view(['GET'])

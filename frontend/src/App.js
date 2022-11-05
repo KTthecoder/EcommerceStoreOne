@@ -4,20 +4,23 @@ import { Navbar } from './navigation/Navbar';
 import { Navigation } from './navigation/Navigation';
 import { Footer } from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import AuthProvider from './contexts/AuthProvider';
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop/>
-      <nav>
-        <Navbar/>
-      </nav>
-      <main>
-        <Navigation/>
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
+      <AuthProvider>
+        <ScrollToTop/>
+          <nav>
+            <Navbar/>
+          </nav>
+          <main>
+            <Navigation/>
+          </main>
+          <footer>
+            <Footer/>
+          </footer>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

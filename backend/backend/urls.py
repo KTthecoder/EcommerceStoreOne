@@ -36,6 +36,7 @@ urlpatterns = [
 
     path('api/home', HomePage, name='HomePage'),
     path('api/all-products', AllProducts, name='AllProducts'),
+    path('api/product/<slug:slug>', ProductDetails, name='ProductDetails'),
     path('api/products/filter-by-size/<str:size>', ProductsBySize, name='ProductsBySize'),
     path('api/products/filter-by-color/<str:color>', ProductsByColor, name='ProductsByColor'),
     path('api/products/order-by/<str:sortMethod>', ProductsSorting, name='ProductsSorting'),
