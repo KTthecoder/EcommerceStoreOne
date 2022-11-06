@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/AuthProvider.js'
 
 const useFetchGetAuth = (url) => {
     const [data, setData] = useState(null)
-    const { authTokens } = useContext(AuthContext)
+    const { accessToken } = useContext(AuthContext)
 
     useEffect(() => {
       const csrftoken = GetCookie('csrftoken');
@@ -13,13 +13,12 @@ const useFetchGetAuth = (url) => {
         headers: {
           'Content-Type': 'application/json',
           'X-CSRFToken': csrftoken,
-          'Authorization' : 'Bearer ' + authTokens.access
+          'Authorization' : 'Bearer ' + accessToken
         }
       })
       .then(res => res.json())
       .then((data) => {
         setData(data)
-        console.log(data)
       })
       .catch(err => {
         console.log(err.message)

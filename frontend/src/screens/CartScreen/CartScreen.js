@@ -1,46 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React from 'react'
 import './CartScreen.css'
 import { useNavigate } from 'react-router-dom'
 import LikeIcon from '../../static/icons/like.png'
 import LeftArrowIcon from '../../static/icons/leftArrow.png'
-import useFetchGetAuth from '../../hooks/useFetchGetAuth'
-import GetCookie from '../../components/GetCookie'
-import { AuthContext } from '../../contexts/AuthProvider'
+import useFetchCart from '../../hooks/useFetchCart'
 
 const CartScreen = () => {
     const navigation = useNavigate()
-    // const { data } = useFetchGetAuth('http://127.0.0.1:8000/api/cart')
-
-    const [data, setData] = useState(null)
-    const { accessToken } = useContext(AuthContext)
-    const [total, setTotal] = useState(null)
-
-    useEffect(() => {
-      const csrftoken = GetCookie('csrftoken');
-      fetch('http://127.0.0.1:8000/api/cart', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': csrftoken,
-          'Authorization' : 'Bearer ' + accessToken
-        }
-      })
-      .then(res => res.json())
-      .then((data) => {
-        if(data['Response'] === 'Your Shopping Cart is Empty'){
-            setData(null)
-            setTotal(0)
-        }
-        else{
-            setData(data)
-            setTotal(data[0].order_total)
-        }
-        console.log(data)
-      })
-      .catch(err => {
-        console.log(err.message)
-      })
-    }, [])
+    const { data, total } = useFetchCart()
 
     return (
         <div className='CartContainer'>

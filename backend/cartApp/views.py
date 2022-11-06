@@ -110,6 +110,53 @@ def AddShippingAddress(request):
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Show Shipping Address displays shipping address for current order of user
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def ShowShippingAddress(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            user = request.user
+            order, created = OrderModel.objects.get_or_create(user=user, ordered=False) 
+            shipping = ShippingAddressModel.objects.get(order = order)
+
+            shippingserializer = ShippingAddressSerializer(shipping)
+
+            return Response(shippingserializer.data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Shipping Address Exists shows if shipping address exists
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def ShippingAddressExists(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            user = request.user
+            order, created = OrderModel.objects.get_or_create(user=user, ordered=False) 
+            try:
+                shipping = ShippingAddressModel.objects.get(order = order)
+                data = {'Response' : 'Shipping Address Exists'}
+                return Response(data, status=status.HTTP_200_OK)
+
+            except ShippingAddressModel.DoesNotExist:
+                data = {'Response' : 'Shipping Address Does Not Exists'}
+                return Response(data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
 # Payment Page shows list of items in cart from order and shipping address
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -128,3 +175,22 @@ def PaymentPage(request):
     else:
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Full Fill Order set ordered to True if order is ordered
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def FullFillOrder(request, orderId):
+    if request.user.is_authenticated:
+        order = OrderModel.objects.get(id = orderId)
+        order.ordered = True
+        order.save()
+
+        data = {}
+        data['response'] = 'Order Fullfiled'
+
+        return Response(data)
+    else:
+        data = {}
+        data['response'] = "User is not authenticated"
+        return Response(data)

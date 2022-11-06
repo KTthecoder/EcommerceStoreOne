@@ -49,6 +49,9 @@ urlpatterns = [
     path('api/cart/add/<int:productId>/<str:size>', AddProduct, name='AddProduct'),
     path('api/cart/remove/<int:orderItemId>', RemoveProduct, name='RemoveProduct'),
     path('api/cart/shipping-address', AddShippingAddress, name='AddShippingAddress'),
+    path('api/cart/shipping-address/show', ShowShippingAddress, name='ShowShippingAddress'),
+    path('api/cart/shipping-address/exists', ShippingAddressExists, name='ShippingAddressExists'),
     path('api/cart/payment', PaymentPage, name='PaymentPage'),
+    path('api/payment/<int:orderId>/accept', FullFillOrder, name='FullFillOrder'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

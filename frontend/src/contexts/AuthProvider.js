@@ -61,7 +61,7 @@ const AuthProvider = (props) => {
         if(response.status == 200){
             setAccessToken(data.access)
             setUser(jwt_decode(data.access))
-            localStorage.setItem('accessToken', JSON.stringify(data))
+            localStorage.setItem('accessToken', JSON.stringify(data.access))
         }
         else{
             logoutUser()
