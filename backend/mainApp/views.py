@@ -5,6 +5,20 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
+from rest_framework_simplejwt.tokens import RefreshToken
+
+@permission_classes([IsAuthenticated])
+@api_view(['GET'])
+def get_tokens_for_user(request):
+    user = request.user
+    refresh = RefreshToken.for_user(user)
+
+    data =  {
+        'refresh': str(refresh),
+        'access': str(refresh.access_token),
+    }
+    return Response(data, status=status.HTTP_200_OK)
+
 # API List return list of all available reguests
 @api_view(['GET'])
 # @permission_classes([IsAuthenticated])

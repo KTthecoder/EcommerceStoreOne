@@ -32,6 +32,7 @@ urlpatterns = [
 
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/token/refresh/', get_tokens_for_user, name='get_tokens_for_user'),
     path('api/register', RegisterPage, name='RegisterPage'),
 
     path('api/home', HomePage, name='HomePage'),

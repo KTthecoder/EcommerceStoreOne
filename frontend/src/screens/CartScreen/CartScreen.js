@@ -1,12 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './CartScreen.css'
 import { useNavigate } from 'react-router-dom'
-import Hoodie1Img from '../../static/images/hoodie1.jpg'
 import LikeIcon from '../../static/icons/like.png'
 import LeftArrowIcon from '../../static/icons/leftArrow.png'
+import useFetchGetAuth from '../../hooks/useFetchGetAuth'
+import GetCookie from '../../components/GetCookie'
+import { AuthContext } from '../../contexts/AuthProvider'
 
 const CartScreen = () => {
     const navigation = useNavigate()
+    // const { data } = useFetchGetAuth('http://127.0.0.1:8000/api/cart')
+
+    const [data, setData] = useState(null)
+    const { accessToken } = useContext(AuthContext)
+    const [total, setTotal] = useState(null)
+
+    useEffect(() => {
+      const csrftoken = GetCookie('csrftoken');
+      fetch('http://127.0.0.1:8000/api/cart', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
+          'Authorization' : 'Bearer ' + accessToken
+        }
+      })
+      .then(res => res.json())
+      .then((data) => {
+        if(data['Response'] === 'Your Shopping Cart is Empty'){
+            setData(null)
+            setTotal(0)
+        }
+        else{
+            setData(data)
+            setTotal(data[0].order_total)
+        }
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+    }, [])
 
     return (
         <div className='CartContainer'>
@@ -14,7 +48,7 @@ const CartScreen = () => {
                 <div className='ShopHeader'>
                     <div className='ShopHeaderLeft'>
                         <h1>SHOPPING CART</h1>
-                        <p>3 Items</p>
+                        <p>{data && data ? Object.keys(data).length : 0} Items</p>
                     </div>
                 </div>
             </div>
@@ -26,102 +60,40 @@ const CartScreen = () => {
                             <p>QUANTITY</p>
                             <p>PRICE</p>
                         </div>
-                        <div className='CartMainDiv'>
-                            <div className='CartMainDivLeft'>
-                                <div className='CartMainDivLeftImgDiv'>
-                                    <img src={Hoodie1Img} className='CartMainDivLeftImg' alt='Hoodie' />
-                                </div>
-                                <div className='CartMainDivLeftInfo'>
-                                    <h1>Some nice tee</h1>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p>Size: XL,</p>
-                                        <p>Color: Grey</p>
+                        {data && data ? data.map((item) => (
+                            <div className='CartMainDiv' key={item.id}>
+                                <div className='CartMainDivLeft'>
+                                    <div className='CartMainDivLeftImgDiv'>
+                                        <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CartMainDivLeftImg' alt='Hoodie' />
                                     </div>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p><span>Category:</span> Hoodie</p>
+                                    <div className='CartMainDivLeftInfo'>
+                                        <h1>{item.product.name}</h1>
+                                        <div className='CartMainDivLeftInfo1'>
+                                            <p>Size: {item.size},</p>
+                                            <p>Color: {item.product.color}</p>
+                                        </div>
+                                        <div className='CartMainDivLeftInfo1'>
+                                            <p><span>Category:</span> {item.product.categoryName}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='CartMainDivMid'>
-                                <input type='number' className='CartMainDivMidInp' placeholder='0' />
-                            </div>
-                            <div className='CartMainDivRight'>
-                                <p>$241.98</p>
-                                <p>$120.99 / each</p>
-                            </div>
-                            <div className='CartMainDivBtns'>
-                                <div className='CartMainDivBtn'>
-                                    <img src={LikeIcon} className='CartMainDivBtnIcon' alt='Hart Icon' />
+                                <div className='CartMainDivMid'>
+                                    <input type='number' className='CartMainDivMidInp' placeholder='0' value={item.quantity} onChange={() => item.quantity} />
                                 </div>
-                                <div className='CartMainDivBtn'>
-                                    <p>Remove</p>
+                                <div className='CartMainDivRight'>
+                                    <p>${item.item_total}</p>
+                                    {item.product.discountPrice ? <p>${item.product.discountPrice}/each</p> : <p>${item.product.regularPrice}/each</p>}
                                 </div>
-                            </div>
-                        </div>
-                        <div className='CartMainDiv'>
-                            <div className='CartMainDivLeft'>
-                                <div className='CartMainDivLeftImgDiv'>
-                                    <img src={Hoodie1Img} className='CartMainDivLeftImg' alt='Hoodie' />
-                                </div>
-                                <div className='CartMainDivLeftInfo'>
-                                    <h1>Some nice tee</h1>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p>Size: XL,</p>
-                                        <p>Color: Grey</p>
+                                <div className='CartMainDivBtns'>
+                                    <div className='CartMainDivBtn'>
+                                        <img src={LikeIcon} className='CartMainDivBtnIcon' alt='Hart Icon' />
                                     </div>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p><span>Category:</span> Hoodie</p>
+                                    <div className='CartMainDivBtn'>
+                                        <p>Remove</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className='CartMainDivMid'>
-                                <input type='number' className='CartMainDivMidInp' placeholder='0' />
-                            </div>
-                            <div className='CartMainDivRight'>
-                                <p>$241.98</p>
-                                <p>$120.99 / each</p>
-                            </div>
-                            <div className='CartMainDivBtns'>
-                                <div className='CartMainDivBtn'>
-                                    <img src={LikeIcon} className='CartMainDivBtnIcon' alt='Hart Icon' />
-                                </div>
-                                <div className='CartMainDivBtn'>
-                                    <p>Remove</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='CartMainDiv'>
-                            <div className='CartMainDivLeft'>
-                                <div className='CartMainDivLeftImgDiv'>
-                                    <img src={Hoodie1Img} className='CartMainDivLeftImg' alt='Hoodie' />
-                                </div>
-                                <div className='CartMainDivLeftInfo'>
-                                    <h1>Some nice tee</h1>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p>Size: XL,</p>
-                                        <p>Color: Grey</p>
-                                    </div>
-                                    <div className='CartMainDivLeftInfo1'>
-                                        <p><span>Category:</span> Hoodie</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='CartMainDivMid'>
-                                <input type='number' className='CartMainDivMidInp' placeholder='0' />
-                            </div>
-                            <div className='CartMainDivRight'>
-                                <p>$241.98</p>
-                                <p>$120.99 / each</p>
-                            </div>
-                            <div className='CartMainDivBtns'>
-                                <div className='CartMainDivBtn'>
-                                    <img src={LikeIcon} className='CartMainDivBtnIcon' alt='Hart Icon' />
-                                </div>
-                                <div className='CartMainDivBtn'>
-                                    <p>Remove</p>
-                                </div>
-                            </div>
-                        </div>
+                        )): <h1>Cart is empty</h1>}    
                         <div className='CartMainButtonsDiv'>
                             <div className='CartMainBtnDiv'>
                                 <div className='CartMainBtn'>
@@ -143,15 +115,15 @@ const CartScreen = () => {
                         <div className='CartMainRightDiv2'>
                             <div className='CartMainRightDiv2Block'>
                                 <p>Total Price:</p>
-                                <p>$887.96</p>
+                                <p>${total && total ? total : 0}</p>                              
                             </div>
                             <div className='CartMainRightDiv2Block'>
                                 <p>Discount:</p>
-                                <p>$20</p>
+                                <p>$0</p>
                             </div>
                             <div className='CartMainRightDiv2Block'>
                                 <p>Total:</p>
-                                <h2>$867.96</h2>
+                                <h2>${total && total ? total : 0}</h2>
                             </div>
                             <div className='CartMainRightDiv2Button' onClick={() => navigation('/checkout')}>     
                                 <p>Make Purchase</p>

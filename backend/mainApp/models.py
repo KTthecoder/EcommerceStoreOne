@@ -12,11 +12,11 @@ size_choice = (
 )
 
 color_choice = (
-    ('WHITE', 'White'),
-    ('BLACK', 'Black'),
-    ('GREY', 'Grey'),
-    ('BEIGE', 'Beige'),
-    ('GREEN', 'Green')
+    ('White', 'White'),
+    ('Black', 'Black'),
+    ('Grey', 'Grey'),
+    ('Beige', 'Beige'),
+    ('Green', 'Green')
 )
 
 # Product Category Model
@@ -75,7 +75,7 @@ class OrderModel(models.Model):
 
     @property
     def order_total(self):
-        items = self.orderitem_set.all()
+        items = self.orderItem.all()
         total = sum(item.item_total for item in items)
         return total
 

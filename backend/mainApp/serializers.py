@@ -30,12 +30,25 @@ class ProductSerializer(serializers.ModelSerializer):
         model = ProductModel
         fields = '__all__'
 
+# Product Serializer
+class OrderSerializer(serializers.ModelSerializer):
+    order_total = serializers.FloatField()
+    class Meta:
+        model = OrderModel
+        fields = ['id', 'ordered', 'dataOrdered', 'user', 'order_total']
+
 # Order Item Extended Serializer
 class OrderItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only = True)
+    product = ProductDetailsSerializer(read_only = True)
+    order = OrderSerializer(read_only = True)
+    order_total = serializers.SerializerMethodField('get_order_total')
+
     class Meta:
         model = OrderItemModel
-        fields = ['id', 'quantity', 'size', 'order', 'item_total', 'product']
+        fields = ['id', 'quantity', 'size', 'order', 'order_total', 'item_total', 'product']
+
+    def get_order_total(self, order):
+        return order.order.order_total
 
 # Shipping Address Serializer
 class ShippingAddressSerializer(serializers.ModelSerializer):

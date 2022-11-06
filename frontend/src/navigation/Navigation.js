@@ -18,24 +18,30 @@ import PrivateRoute from '../utils/PrivateRoute'
 export const Navigation = () => {
   return (
     <Routes>
+        {/* Without Authentication*/}
         <Route path='/' element={<HomeScreen/>} />
         <Route path='/shop' element={<ShopScreen/>} />
         <Route path='/categories' element={<CategoriesScreen/>} />
         <Route path='/newest' element={<NewestScreen/>} />
         <Route path='/on-sale' element={<OnSaleScreen/>} />
-
-        <Route exact path='/cart' element={<PrivateRoute/>}>
-          <Route path='/cart' element={<CartScreen/>} />
-        </Route>
-        
-
         <Route path='/search/:slug' element={<SearchScreen/>} />
-        <Route path='/checkout' element={<CheckoutScreen/>} />
         <Route path='/login' element={<LoginScren/>} />
         <Route path='/register' element={<RegisterScreen/>} />
         <Route path='/product/:slug' element={<ProductDetails/>} />
-        <Route path='/payment' element={<PaymentScreen/>} />
-        <Route path='/account' element={<ProfileScreen/>} />
+        
+        {/* User need to be logged In */}
+        <Route exact path='/cart' element={<PrivateRoute/>}>
+          <Route path='/cart' element={<CartScreen/>} />
+        </Route>
+        <Route exact path='/checkout' element={<PrivateRoute/>}>
+          <Route path='/checkout' element={<CheckoutScreen/>} />
+        </Route>
+        <Route exact path='/payment' element={<PrivateRoute/>}>
+          <Route path='/payment' element={<PaymentScreen/>} />
+        </Route>
+        <Route exact path='/account' element={<PrivateRoute/>}>
+          <Route path='/account' element={<ProfileScreen/>} />
+        </Route> 
     </Routes>
   )
 }
