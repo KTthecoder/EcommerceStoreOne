@@ -28,6 +28,18 @@
     flex-direction: column;
 }
 
+.ShopHeaderr{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#PaymentHeaderH1{
+    padding-bottom: 50px;
+    margin: 0px;
+}
+
 .PaymentRightDiv{
     display: flex;
     justify-content: flex-start;
@@ -39,6 +51,7 @@
     box-sizing: border-box;
     padding: 25px 50px;
     margin-bottom: 50px;
+    z-index: 0;
 }
 
 .PaymentRightDiv h2{
@@ -47,6 +60,36 @@
 
 .PaymentRightDiv p{
     margin: 0px 0px 15px 0px;
+}
+
+.PaymentRightDiv1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(137, 137, 137);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 25px 50px;
+    margin-bottom: 50px;
+    z-index: 0;
+}
+
+.PaymentRightDiv1 h2{
+    margin: 0px 0px 0px 0px;
+}
+
+.PaymentRightDiv1 p{
+    margin: 0px 0px 0px 0px;
+}
+
+.PaymentRightDivRightBtn{
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+    padding: 10px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    cursor: pointer;
 }
 
 .PaymentHeader{
@@ -97,6 +140,17 @@
         align-items: center;
         text-align: center;
     }
+
+    .PaymentRightDiv1{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .PaymentRightDiv1 h2:nth-child(1){
+        margin-bottom: 15px;
+    }
 }
 
 @media(max-width: 900px){
@@ -109,6 +163,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        flex-wrap: wrap;
     }
 
     .PaymentLeft{
@@ -117,6 +172,10 @@
     }
 
     .PaymentRightDiv{
+        width: 47%;
+    }
+
+    .PaymentRightDiv1{
         width: 47%;
     }
 
@@ -133,9 +192,9 @@
         margin-top: -20px;
     }
 
-    #PaymentHeaderH1{
+    /* #PaymentHeaderH1{
         display: none;
-    }
+    } */
 }
 
 @media(max-width: 760px){
@@ -144,6 +203,10 @@
     }
 
     .PaymentRightDiv{
+        width: 100%;
+    }
+
+    .PaymentRightDiv1{
         width: 100%;
     }
 }

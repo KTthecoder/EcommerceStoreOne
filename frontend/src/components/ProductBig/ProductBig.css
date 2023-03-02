@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 380px;
+    width: 100%;
     flex-direction: column;
     margin-bottom: 50px;
     cursor: pointer;
@@ -13,13 +13,26 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 520px;
-    background-image: url('../../static/images/hoodie1.jpg');
+    height: 380px;
+    object-fit: cover;
+    /* background-image: url('../../static/images/hoodie1.jpg');
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
 }
 
-@media(max-width: 1660px){
+@media(min-width: 1660px){
+    .ProductImgBig{
+        height: 410px;
+    }
+}
+
+@media(min-width: 1660px){
+    .ProductImgBig{
+        height: 430px;
+    }
+}
+
+/* @media(max-width: 1660px){
     .ProductContainerBig{
         width: 323px;
     }
@@ -499,7 +512,7 @@
     }
 
     .ProductImgBig{
-        height: 430px;
+        height: 400px;
     }
 }
 
@@ -512,4 +525,4 @@
     .ProductImgBig{
         height: 400px;
     }
-}
+} */

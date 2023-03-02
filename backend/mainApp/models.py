@@ -1,7 +1,6 @@
-from enum import unique
-from secrets import choice
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 # Size Choice
 size_choice = (
@@ -16,13 +15,18 @@ color_choice = (
     ('Black', 'Black'),
     ('Grey', 'Grey'),
     ('Beige', 'Beige'),
-    ('Green', 'Green')
+    ('Green', 'Green'),
+    ('Red', 'Red'),
+    ('Light', 'Light'),
+    ('Brown', 'Brown'),
+    ('Blue', 'Blue'),
+    ('Purple', 'Purple'),
 )
 
 # Product Category Model
 class ProductCategoryModel(models.Model):
     name = models.CharField(max_length=50, blank=False, null=True)
-    img = models.ImageField(upload_to='categoryFrontImgs')
+    img = ResizedImageField(force_format="WEBP", quality=80, upload_to="categoryFrontImgs")
     alt = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
 
@@ -35,7 +39,7 @@ class ProductModel(models.Model):
     regularPrice = models.DecimalField(max_digits=5, decimal_places=2, blank=False, null=True)
     discountPrice = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     description = models.TextField(blank=False, null=True)
-    frontImage = models.ImageField(upload_to='productFrontImgs')
+    frontImage = ResizedImageField(force_format="WEBP", quality=80, upload_to="productFrontImgs")
     alt = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
     sizeS = models.IntegerField()
@@ -56,7 +60,7 @@ class ProductModel(models.Model):
 
 # Product Images List
 class ProductImagesModel(models.Model):
-    image = models.ImageField(upload_to='productDetailsImgs')
+    image = ResizedImageField(force_format="WEBP", quality=80, upload_to="productDetailsImgs") 
     alt = models.CharField(max_length=150)
 
     product = models.ForeignKey(ProductModel, related_name='productimages', on_delete=models.SET_NULL, blank=True, null=True)
@@ -77,7 +81,7 @@ class OrderModel(models.Model):
     def order_total(self):
         items = self.orderItem.all()
         total = sum(item.item_total for item in items)
-        return total
+        return round(total, 2)
 
 # Order Item Model
 class OrderItemModel(models.Model):
@@ -93,9 +97,11 @@ class OrderItemModel(models.Model):
     @property
     def item_total(self):
         if self.product.discountPrice:
-            return float(self.product.discountPrice) * float(self.quantity)
+            value = float(self.product.discountPrice) * float(self.quantity)
+            return round(value, 2)
         else:
-            return float(self.product.regularPrice) * float(self.quantity)
+            value = float(self.product.regularPrice) * float(self.quantity)
+            return round(value, 2)
 
 # Shipping Address Model
 class ShippingAddressModel(models.Model):

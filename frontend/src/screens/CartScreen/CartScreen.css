@@ -87,10 +87,13 @@
     justify-content: center;
     align-items: center;
     width: 20%;
+    height: 125px;
 }
 
 .CartMainDivLeftImg{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .CartMainDivLeftInfo{
@@ -128,20 +131,29 @@
 .CartMainDivMid{
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     width: 15%;
+}
+
+.CartMainDivMidIcon{
+    width: 20px;
+    margin: 10px 0px 0px 0px;
+    padding-left: 15px;
+    cursor: pointer;
 }
 
 .CartMainDivMidInp{
     margin: 10px 0px 0px 0px;
     height: 42px;
-    width: 50%;
+    width: 40%;
     font-size: 1rem;
     box-sizing: border-box;
     padding: 0px 8px 0px 13px; 
     outline: none;
     border-radius: 5px;
     border: 1px solid rgb(137, 137, 137);
+    background-color: white;
+    color: black;
 }
 
 .CartMainDivRight{
@@ -220,6 +232,10 @@
     margin: 20px 0px 0px 0px;
 }
 
+.CartMainDivMidIcon{
+
+}
+
 .CartMainBtnDiv{
     display: flex;
     justify-content: space-between;
@@ -233,9 +249,13 @@
     align-items: center;
     border: 1px solid rgb(137, 137, 137);
     border-radius: 10px;
-    width: 195px;
+    width: 220px;
     padding: 0px 10px;
     cursor: pointer;
+}
+
+.CartMainBtn p{
+    padding-right: 10px;
 }
 
 .CartMainBtn:nth-child(2){
@@ -385,11 +405,19 @@
     .CartMain1{
         width: 1400px;
     }
+
+    .CartMainDivLeftImgDiv{
+        height: 110px;
+    }
 }
 
 @media(max-width: 1520px){
     .CartContainer1{
         width: 1200px;
+    }
+
+    .CartMainDivLeftImgDiv{
+        height: 100px;
     }
 
     .CartMain1{
@@ -471,6 +499,11 @@
         width: 90%;
     }
 
+    .CartMainDivLeftImgDiv{
+        height: 170px;
+        width: 120px;
+    }
+
     .CartMain1{
         width: 90%;
         flex-direction: column;
@@ -483,6 +516,13 @@
     .CartMainRight{
         width: 100%;
         margin-top: 60px;
+    }
+}
+
+@media(max-width: 830px){
+    .CartMainDivLeftImgDiv{
+        height: 130px;
+        width: 90px;
     }
 }
 
@@ -604,7 +644,8 @@
     }
 
     .CartMainDivLeftImgDiv{
-        width: 40%;
+        width: 200px;
+        height: 300px;
         display: flex;
     }
 
@@ -646,6 +687,12 @@
     .CartMainButtonsDiv{
         display: none;
     }
+
+    .CartMainDivLeftImgDiv{
+        width: 150px;
+        height: 230px;
+        display: flex;
+    }
 }
 
 @media(max-width: 440px){
@@ -659,6 +706,14 @@
 
     .CartMainRightDiv1{
         text-align: center;
+    }
+}
+
+@media(max-width: 390px){
+    .CartMainDivLeftImgDiv{
+        width: 120px;
+        height: 190px;
+        display: flex;
     }
 }
 
@@ -683,5 +738,13 @@
         align-items: center;
         background-color: red;
         width: 100%;
+    }
+}
+
+@media(max-width: 330px){
+    .CartMainDivLeftImgDiv{
+        width: 100px;
+        height: 150px;
+        display: flex;
     }
 }

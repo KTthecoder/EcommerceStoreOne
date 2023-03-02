@@ -46,12 +46,28 @@
 }
 
 .CategoriesMain{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
     width: 100%;
-    margin-top: 40px;
-    flex-wrap: wrap;
+}
+
+@media(min-width: 460px){
+    .CategoriesMain{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 840px){
+    .CategoriesMain{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(min-width: 1300px){
+    .CategoriesMain{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media(max-width: 1860px){

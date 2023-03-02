@@ -15,21 +15,23 @@ const PaymentScreen = () => {
             <div className='PaymentHeader'>
                 <h1>Payment Page</h1>
             </div>
-            <div className='PaymentContainer1'>
+            <div className='PaymentContainer1'>     
                 <div className='PaymentLeft'>
                     <div className='CheckoutRightMain'>
-                        <div className='CheckoutRightHeader'>
-                            <h1 id='PaymentHeaderH1'>Payment Page</h1>
+                        <div className='ShopHeaderr'>
+                            <div className='ShopHeaderLeft'>
+                                <h1 id='PaymentHeaderH1'>PAYMENT PAGE</h1>
+                            </div>
                         </div>
                         {data && data ? data.map((item) => (
                             <div className='CheckoutRightDiv' key={item.id}>
                                 <div className='CheckoutRightDivImgDiv'>
-                                    <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CheckoutRightDivImg' alt='Hoodie' />
+                                    <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CheckoutRightDivImg1' alt={item.product.name} />
                                 </div>
                                 <div className='CheckoutRightDivText'>
                                     <h1>{item.product.name}</h1>
                                     <div className='CheckoutRightDivText1'>
-                                        <p>Size: {item.size},</p>
+                                        <p>Size: {item.size.toUpperCase()},</p>
                                         <p>Quantity: {item.quantity}</p>
                                     </div>
                                 </div>  
@@ -42,10 +44,19 @@ const PaymentScreen = () => {
                 </div>
                 <div className='PaymentRight'>
                     <div className='PaymentRightDiv'>
-                        <h2>Delivery Info</h2>
-                        <p>{shipping && shipping.name} {shipping && shipping.lastName}</p>
-                        <p>{shipping && shipping.address}</p>
-                        <p>{shipping && shipping.zipcode}, {shipping && shipping.city}</p>
+                        <div className='PaymentRightDivLeft'>
+                            <h2>Delivery Info</h2>
+                            <p>{shipping && shipping.name} {shipping && shipping.lastName}</p>
+                            <p>{shipping && shipping.address}</p>
+                            <p>{shipping && shipping.zipcode}, {shipping && shipping.city}</p>
+                        </div>
+                        <div className='PaymentRightDivRight'>
+                            <p onClick={() => navigation('/checkout/edit')} className='PaymentRightDivRightBtn'>Change Address</p>
+                        </div>
+                    </div>
+                    <div className='PaymentRightDiv1'>
+                        <h2>Total:</h2>
+                        <h2>${total && total}</h2>
                     </div>
                     <div className='PaymentRightDiv'>
                         <h2>Payment Method</h2>

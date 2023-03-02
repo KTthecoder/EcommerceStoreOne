@@ -49,7 +49,7 @@ def ApiList(request):
 @api_view(['GET'])
 def HomePage(request):
     if request.method == 'GET':
-        products = ProductModel.objects.all()
+        products = ProductModel.objects.all()[0:10]
         categories = ProductCategoryModel.objects.all()
 
         if not products.exists() or not categories.exists():
@@ -60,6 +60,24 @@ def HomePage(request):
         categoriesSerializer = ProductCategorySerializer(categories, many = True)
 
         return Response([categoriesSerializer.data, prodcutsSerializer.data], status=status.HTTP_200_OK)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Recommended Products show 5 recomended products
+@api_view(['GET'])
+def RecommendedProducts(request):
+    if request.method == 'GET':
+        products = ProductModel.objects.order_by('?')[:5]
+
+        if not products.exists():
+            data = {'Error' : 'ProductModel is empty'}
+            return Response(data, status=status.HTTP_200_OK)
+
+        prodcutsSerializer = ProductSerializer(products, many = True)
+
+        return Response(prodcutsSerializer.data, status=status.HTTP_200_OK)
     else:
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
@@ -258,3 +276,40 @@ def AllCategories(request):
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Products By Category show list of products sorted by category
+@api_view(['GET'])
+def ProductsByCategory(request, category):
+    if request.method == 'GET':
+        try: 
+            categoryModel = ProductCategoryModel.objects.get(slug = category)
+            products = ProductModel.objects.filter(category = categoryModel)
+        except:
+            data = {'Error' : 'Category Does Not Exists'}
+            return Response(data, status=status.HTTP_200_OK)
+
+        if not products.exists():
+            data = {'Error' : 'ProductModel is empty'}
+            return Response(data, status=status.HTTP_200_OK)
+
+        prodcutsSerializer = ProductSerializer(products, many = True)
+        return Response(prodcutsSerializer.data, status=status.HTTP_200_OK)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Search Product finds product with given words
+@api_view(['GET'])
+def SearchProduct(request, search):
+    if request.method == 'GET':
+        products = ProductModel.objects.filter(name__contains = search)
+
+        if not products.exists():
+            data = {'Error' : 'ProductModel is empty'}
+            return Response(data, status=status.HTTP_200_OK)
+
+        prodcutsSerializer = ProductSerializer(products, many = True)
+        return Response(prodcutsSerializer.data, status=status.HTTP_200_OK)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)

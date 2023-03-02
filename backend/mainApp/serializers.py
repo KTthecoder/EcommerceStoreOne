@@ -63,3 +63,9 @@ class OrderPaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderModel
         fields = ['id', 'user', 'ordered', 'dataOrdered', 'order_total', 'shippingAddress', 'orderItem']
+
+# Product Serializer
+class OrderQuantitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItemModel
+        fields = ['id', 'quantity']

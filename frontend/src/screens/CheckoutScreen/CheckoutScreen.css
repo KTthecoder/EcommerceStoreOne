@@ -200,11 +200,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 70px;
 }
 
 .CheckoutRightDivImg{
     width: 100%;
+    height: 130px;
+}
+
+.CheckoutRightDivImg1{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
 }
 
 .CheckoutRightDivText{
@@ -279,6 +286,12 @@
     cursor: pointer;
 }
 
+.CartMainBtn{
+    font-size: 1rem;
+    padding: 0px 0px 0px 10px;
+    box-sizing: initial;
+}
+
 @media(max-width: 1860px){
     .CheckoutContainer1{
         width: 1600px;
@@ -289,11 +302,21 @@
     .CheckoutContainer1{
         width: 1400px;
     }
+
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 110px;
+    }
 }
 
 @media(max-width: 1520px){
     .CheckoutContainer1{
         width: 1200px;
+    }
+
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 100px;
     }
 }
 
@@ -315,6 +338,15 @@
     .CheckoutContainer1{
         width: 90%;
     }
+
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 105px;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 80px;
+    }
 }
 
 @media(max-width: 1050px){
@@ -334,11 +366,37 @@
         width: 100%;
         margin-top: 100px;
     }
+
+    .CheckoutRightDivImgDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+    }
+
+    .CheckoutRightDivImg1{
+        width: 100%;
+        height: 90px;
+    }
 }
 
 @media(max-width: 900px){
     .CheckoutRightDivImgDiv{
         width: 100px;
+    }
+
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 120px;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 80px;
+    }
+
+    .CheckoutRightDivImg1{
+        width: 80px;
+        height: 115px;
     }
 }
 
@@ -351,6 +409,17 @@
 @media(max-width: 600px){
     .CheckoutRight{
         display: none;
+    }
+}
+
+@media(max-width: 550px){
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 120px;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 100px;
     }
 }
 
@@ -410,5 +479,53 @@
     .CartMainBtn2{
         text-align: center;
         justify-content: center;
+    }
+}
+
+@media(max-width: 470px){
+    .CheckoutRightDivImg1{
+        width: 100%;
+        height: 115px;
+    }
+}
+
+@media(max-width: 420px){
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 110px;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 90px;
+    }
+
+    .CheckoutRightDivImg1{
+        width: 100%;
+        height: 105px;
+    }
+}
+
+@media(max-width: 370px){
+    .CheckoutRightDivImg1{
+        width: 100%;
+        height: 95px;
+    }
+}
+
+@media(max-width: 340px){
+    .CheckoutRightDivImg{
+        width: 100%;
+        height: 90px;
+    }
+
+    .CheckoutRightDivImgDiv{
+        width: 80px;
+    }
+}
+
+@media(max-width: 330px){
+    .CheckoutRightDivImg1{
+        width: 100%;
+        height: 85px;
     }
 }

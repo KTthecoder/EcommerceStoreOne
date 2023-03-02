@@ -1,4 +1,4 @@
-from mainApp.serializers import OrderItemSerializer, ShippingAddressSerializer, OrderPaymentSerializer
+from mainApp.serializers import OrderItemSerializer, ShippingAddressSerializer, OrderPaymentSerializer, OrderQuantitySerializer
 from mainApp.models import *
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -25,8 +25,8 @@ def CartPage(request):
             data = {'Error' : 'User is not authenticated'}
             return Response(data, status=status.HTTP_401_UNAUTHORIZED)
     else:
-        data = {'Error' : 'Bad Request'}
-        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+        data = {'Error' : 'Method not allowed'}
+        return Response(data, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
 # Add Product adds product to shopping cart (Adds orderItem to OrderModel)
@@ -157,6 +157,50 @@ def ShippingAddressExists(request):
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Shipping Address Exists shows if shipping address exists
+@api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
+def ShippingAddressEdit(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            user = request.user
+            order, created = OrderModel.objects.get_or_create(user=user, ordered=False) 
+            try:
+                shipping = ShippingAddressModel.objects.get(order = order)
+                shippingSerializer = ShippingAddressSerializer(shipping)
+                return Response(shippingSerializer.data, status=status.HTTP_200_OK)
+
+            except ShippingAddressModel.DoesNotExist:
+                data = {'Response' : 'Shipping Address Does Not Exists'}
+                return Response(data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    elif request.method == 'PUT':
+        if request.user.is_authenticated:
+            user = request.user
+            order, created = OrderModel.objects.get_or_create(user=user, ordered=False) 
+            try:
+                shipping = ShippingAddressModel.objects.get(order = order)
+                shippingSerializer = ShippingAddressSerializer(data=request.data, instance=shipping)
+                if shippingSerializer.is_valid():
+                    shippingSerializer.save()
+                    data = {'Response' : 'Shipping Address Exists'}
+                    return Response(shippingSerializer.data, status=status.HTTP_200_OK)
+
+            except ShippingAddressModel.DoesNotExist:
+                data = {'Response' : 'Shipping Address Does Not Exists'}
+                return Response(data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
 # Payment Page shows list of items in cart from order and shipping address
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -190,6 +234,28 @@ def FullFillOrder(request, orderId):
         data['response'] = 'Order Fullfiled'
 
         return Response(data)
+    else:
+        data = {}
+        data['response'] = "User is not authenticated"
+        return Response(data)
+
+
+# Full Fill Order set ordered to True if order is ordered
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def OrderQuantity(request):
+    if request.user.is_authenticated:
+        try: 
+            user = request.user
+            order, created = OrderModel.objects.get_or_create(user = user, ordered = False)
+            orderItems = OrderItemModel.objects.filter(order = order)
+            orderItemSerializer = OrderQuantitySerializer(orderItems, many = True)
+
+            return Response(orderItemSerializer.data, status=status.HTTP_200_OK)
+
+        except OrderModel.DoesNotExist:
+            data = {'Response' : 0}
+            return Response(data, status=status.HTTP_200_OK)    
     else:
         data = {}
         data['response'] = "User is not authenticated"

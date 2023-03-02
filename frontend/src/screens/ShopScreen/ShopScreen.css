@@ -21,6 +21,7 @@
     align-items: center;
     width: 100%;
     margin-top: 130px;
+    flex-direction: column;
 }
 
 .ShopHeaderLeft{
@@ -34,7 +35,6 @@
 .ShopHeaderLeft h1{
     font-size: 2rem;
     letter-spacing: 3px;
-    margin-right: 30px;
     text-align: center;
 }
 
@@ -59,12 +59,47 @@
 }
 
 .ShopMain{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    flex-wrap: wrap;
     margin-top: 30px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+@media(min-width: 351px){
+    .ShopMain{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 651px){
+    .ShopHeaderLeft p{
+        margin-left: 15px;
+    }
+}
+
+@media(min-width: 769px){
+    .ShopMain{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(min-width: 1031px){
+    .ShopMain{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(min-width: 950px){
+    .ShopHeader{
+        flex-direction: row;
+    }
+}
+
+@media(min-width: 1860px){
+    .ShopMain{
+        grid-template-columns: repeat(5, minmax(280px, 1fr));
+    }
 }
 
 @media(max-width: 1860px){
@@ -114,6 +149,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-left: 30px;
+        margin: 0px 0px 20px 0px;
     }
 }

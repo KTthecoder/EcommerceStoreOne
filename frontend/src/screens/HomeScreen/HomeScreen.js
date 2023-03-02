@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Product from '../../components/Product/Product'
+import ProductBig from '../../components/ProductBig/ProductBig'
 import './HomeScreen.css'
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock'
 import useFetchGet from '../../hooks/useFetchGet'
@@ -18,7 +19,7 @@ export const HomeScreen = () => {
               <p>Create your own style</p>
             </div>
             <div className='HomeHeader1BtnDiv'>
-              <Link to='/' className='HomeHeader1Btn'>Shop Now</Link>
+              <Link to='/newest' className='HomeHeader1Btn'>Shop Now</Link>
             </div>
           </div>
       </div>
@@ -45,12 +46,12 @@ export const HomeScreen = () => {
             <div className='HomeMainSectionMain'>
               {data && data[1].map((item) => (
                 <div key={item.id}>
-                  <Product img={item.frontImage} name={item.name} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
-                </div>
+                  <Product img={item.frontImage} alt={item.alt} name={item.name} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
+                </div>       
               ))}
             </div>
             <div className='HomeMainSectionFooter'>
-              <Link to='/' className='HomeMainSectionFooterLink'>See More Products</Link>
+              <Link to='/shop' className='HomeMainSectionFooterLink'>See More Products</Link>
             </div>
           </div>
         </div>

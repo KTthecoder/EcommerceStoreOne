@@ -111,7 +111,7 @@ const CheckoutScreen = () => {
                     </div>
                     <div className='CheckoutLeftBot'>
                         <div className='CheckoutLeftBotBtnDiv'>
-                            <div className='CartMainBtn2'>
+                            <div className='CartMainBtn2' onClick={() => navigation('/cart')}>
                                 <img src={LeftArrowIcon} className='CartMainBtnIcon' alt='Arrow Left' />
                                 {/* <a href="https://www.flaticon.com/free-icons/back" title="back icons">Back icons created by Roundicons - Flaticon</a> */}
                                 <p>Back To Cart</p>
@@ -132,12 +132,12 @@ const CheckoutScreen = () => {
                         {data && data ? data.map((item) => (
                             <div className='CheckoutRightDiv' key={item.id}>
                                 <div className='CheckoutRightDivImgDiv'>
-                                    <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CheckoutRightDivImg' alt='Hoodie' />
+                                    <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CheckoutRightDivImg1' alt={item.product.name} />
                                 </div>
                                 <div className='CheckoutRightDivText'>
                                     <h1>{item.product.name}</h1>
                                     <div className='CheckoutRightDivText1'>
-                                        <p>Size: {item.size},</p>
+                                        <p>Size: {item.size.toUpperCase()},</p>
                                         <p>Quantity: {item.quantity}</p>
                                     </div>
                                 </div>  

@@ -26,7 +26,7 @@ const ShopScreen = () => {
                 <div className='ShopMain'>
                     {data && data.map((item) => (
                         <div key={item.id}>
-                            <ProductBig img={item.frontImage} name={item.name} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
+                            <ProductBig img={item.frontImage} name={item.name} normalPrice={item.regularPrice} alt={item.alt} discountPrice={item.discountPrice} slug={item.slug}/>
                         </div>
                     ))}
                 </div>

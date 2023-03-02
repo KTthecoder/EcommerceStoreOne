@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import SearchIcon from '../static/icons/search.png'
 import AccountIcon from '../static/icons/account.png'
 import MenuIcon from '../static/icons/menu.png'
 import closeIcon from '../static/icons/close.png'
 import './Navbar.css'
+import useFetchGetAuth from '../hooks/useFetchGetAuth'
 
 export const Navbar = () => {
     const [show, setShow] = useState(false)
-    const [showSearch, setShowSearch] = useState(false)
+    const navigation = useNavigate()
+    // const [showSearch, setShowSearch] = useState(false)
     const location = useLocation()
+    const { data } = useFetchGetAuth('http://127.0.0.1:8000/api/order/quantity')
 
-    const ToggleSearch = () => {
-        if(showSearch == false){
-            setShowSearch(true)
-        }
-        else{
-            setShowSearch(false)
-        }
-    }
+    // const ToggleSearch = () => {
+    //     if(showSearch == false){
+    //         setShowSearch(true)
+    //     }
+    //     else{
+    //         setShowSearch(false)
+    //     }
+    // }
 
     useEffect(() => {
         setShow(false)
-        setShowSearch(false)
+        // setShowSearch(false)
     }, [location])
     
 
@@ -67,26 +70,26 @@ export const Navbar = () => {
                     <Link to='/cart' className='NavbarRightLinkDiv'>
                         <p className='NavbarRightLink'>Cart</p>
                         <div className='NavbarRightLinkNumber'>
-                            <p>0</p>
+                            <p>{data && data ? Object.keys(data).length : 0}</p>
                         </div>
                     </Link>
                     <Link to='/account' className='NavbarRightIconDiv'>
                         <img src={AccountIcon} className='NavbarRightIcon' alt='Account Icon' />
                         {/* <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a> */}
                     </Link>
-                    <div className='NavbarRightIconDiv' id='SearchIcon' onClick={ToggleSearch}>
+                    <div className='NavbarRightIconDiv' id='SearchIcon' onClick={() => navigation('/search')}>
                         <img src={SearchIcon} className='NavbarRightIcon' alt='Search Icon' />
                         {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
                     </div>
                 </div>
             </div>
-            <div className={showSearch ? 'NavbarSearchBar' : 'NavbarSearchNone'}>
+            {/* <div className={showSearch ? 'NavbarSearchBar' : 'NavbarSearchNone'}>
                 <div className='NavbarSearchBar1'>
-                    <img src={SearchIcon} className='NavbarSearchRightIcon' alt='Search Icon' />
+                    <img src={SearchIcon} className='NavbarSearchRightIcon' alt='Search Icon' /> */}
                     {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
-                    <input type='text' className='NavbarSearchBarInp' placeholder='Search...' />
+                    {/* <input type='text' className='NavbarSearchBarInp' placeholder='Search...' />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

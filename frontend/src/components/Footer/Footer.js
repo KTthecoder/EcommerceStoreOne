@@ -17,6 +17,7 @@ export const Footer = () => {
                             <li><Link to="/categories" className="ListHref">Categories</Link></li>      
                             <li><Link to="/newest" className="ListHref">Newest</Link></li>
                             <li><Link to="/on-sale" className="ListHref">On Sale</Link></li>
+                            <li><a href="https://pl.freepik.com/" className="ListHref">Images</a></li>
                         </ul>
                     </div>
                     <div className="List">
@@ -29,6 +30,7 @@ export const Footer = () => {
                             <li><a href="https://www.google.com/" className="ListHref">Twitter</a></li>
                             <li><a href="https://www.google.com/" className="ListHref">Pinterest</a></li>
                             <li><a href="https://www.google.com/" className="ListHref">TikTok</a></li>
+                            <li><a href="https://unsplash.com/" className="ListHref">Images</a></li>
                         </ul>
                     </div>
                 </div>

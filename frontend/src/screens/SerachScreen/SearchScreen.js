@@ -1,60 +1,66 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import GetCookie from '../../components/GetCookie'
 import './SearchScreen.css'
-import FilterIcon from '../../static/icons/filter.png'
-import Tee1Img from '../../static/images/tee1.jpg'
-import Hoodie1Img from '../../static/images/hoodie1.jpg'
-import Bot1Img from '../../static/images/bot1.jpg'
-import wallet1Img from '../../static/images/wallet1.jpg'
+import SearchIcon from '../../static/icons/search.png'
 import ProductBig from '../../components/ProductBig/ProductBig'
 import { FiltersDrawer } from '../../components/FiltersDrawer/FiltersDrawer'
-import { useParams } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthProvider'
 
 const SearchScreen = () => {
     const [show, setShow] = useState(false)
+    const [searchValue, setSearchValue] = useState('')
+    const [data, setData] = useState(null)
+    const [error, setError] = useState('Find Products')
 
-    const {slug} = useParams()
+    const { accessToken } = useContext(AuthContext)
+
+    const FindProduct = () => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/api/search/${searchValue}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : 'Bearer ' + accessToken
+            }
+        })
+        .then(res => res.json())
+        .then((data) => {
+            if(data['Error'] === 'ProductModel is empty'){
+                setError('This Product Does Not Exists ')
+                console.log('error')
+                setData(null)
+            }
+            else{
+                setData(data)
+            }
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+    }
 
     return (
         <div className='ShopContainer'>
             <div className='ShopContainer1'>
-                <div className='ShopHeader'>
-                    <div className='ShopHeaderLeft'>
-                        <h1>PRODUCTS FOUND</h1>
-                        <p>12 results</p>
-                    </div>
-                    <div className='ShopHeaderRight' onClick={() => setShow(true)}>
-                        <img src={FilterIcon} className='ShopHeaderRightIcon' alt='Filter Icon' />
-                        {/* <a href="https://www.flaticon.com/free-icons/filter" title="filter icons">Filter icons created by herikus - Flaticon</a> */}
-                        <p>Filter</p>
-                    </div>
-                </div>
-                <div className='ShopHeaderBot'>
-                    <div className='ShopHeaderLeftBot'>
-                        <h3>Results for:</h3>
-                        <p>{slug}</p>
+                <div className='ShopSearchBar'>
+                    <div className='ShopSearchBar1'>
+                        <img src={SearchIcon} className='ShopSearchBarIcon' alt='Search Icon' onClick={() => FindProduct()}/>
+                        {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
+                        <input type='text' className='ShopSearchBarInp' placeholder='Search...' onKeyDown={(e) => {
+                            if(e.key === 'Enter'){
+                                FindProduct()
+                            }
+                        }} value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
                     </div>
                 </div>
                 <div className='ShopMain'>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>   
-                    <ProductBig img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>   
-                    <ProductBig img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Bot1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={wallet1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Hoodie1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
-                    <ProductBig img={Tee1Img} name="Etiam luctus nisl eu pharetra" price="96.99"/>
+                    {data && data ? data.map((item) => (
+                        <div key={item.id}>
+                            <ProductBig img={item.frontImage} name={item.name} alt={item.alt} normalPrice={item.regularPrice} discountPrice={item.discountPrice} slug={item.slug}/>
+                        </div>
+                    )) : <h1>No Products</h1>}
                 </div>
             </div>
             <FiltersDrawer show={show} setShow={setShow} />

@@ -22,3 +22,39 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+.ShopSearchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.ShopSearchBar1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    height: 60px;
+    margin-bottom: 50px;
+}
+
+.ShopSearchBarIcon{
+    width: 25px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.ShopSearchBarInp{
+    width: 100%;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 1.1rem;
+    height: 60px;
+    padding-left: 25px;
+    outline: none;
+    border-radius: 10px;
+}

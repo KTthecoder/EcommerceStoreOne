@@ -3,4 +3,63 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+
+.ShopHeaderBtn{
+    width: 180px;
+    padding: 12px 0px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.ProfilepMain{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 40px;
+    width: 1650px;
+    place-content: center;
+}
+
+.ProfilepMainBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 10px;
+    padding: 0px 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+@media(max-width: 1860px){
+    .ProfilepMain{
+        width: 1600px;
+    }
+}
+
+@media(max-width: 1660px){
+    .ProfilepMain{
+        width: 1400px;
+    }
+}
+
+@media(max-width: 1520px){
+    .ProfilepMain{
+        width: 1100px;
+    }
+}
+
+@media(max-width: 1190px){
+    .ProfilepMain{
+        width: 90%;
+    }
 }

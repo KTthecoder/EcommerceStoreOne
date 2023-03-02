@@ -41,8 +41,7 @@ const PaypalCheckoutButton = (props) => {
                     purchase_units: [
                         {
                             amount: {
-                                // value: totalPrice
-                                value: 1
+                                value: totalPrice
                             }
                         }
                     ]
@@ -61,6 +60,7 @@ const PaypalCheckoutButton = (props) => {
                 setError(error)
                 console.error("PayPal Checkout onError: ", error)
             }}
+            
         />
     )
 }

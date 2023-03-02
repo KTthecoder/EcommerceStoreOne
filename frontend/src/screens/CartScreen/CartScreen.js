@@ -1,13 +1,51 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CartScreen.css'
 import { useNavigate } from 'react-router-dom'
 import LikeIcon from '../../static/icons/like.png'
+import PlusIcon from '../../static/icons/plus.png'
 import LeftArrowIcon from '../../static/icons/leftArrow.png'
 import useFetchCart from '../../hooks/useFetchCart'
+import GetCookie from '../../components/GetCookie'
+import { AuthContext } from '../../contexts/AuthProvider'
 
 const CartScreen = () => {
     const navigation = useNavigate()
     const { data, total } = useFetchCart()
+    const { accessToken } = useContext(AuthContext)
+
+    const DeleteItemFromCart = (orderItemId) => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/api/cart/remove/${orderItemId}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : 'Bearer ' + accessToken
+            }
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            window.location.reload(true)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    const AddItemToCart = (productId, size) => {
+        const csrftoken = GetCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/api/cart/add/${productId}/${size}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : 'Bearer ' + accessToken
+            }
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            window.location.reload(true)
+        })
+        .catch((err) => console.log(err))
+    }
 
     return (
         <div className='CartContainer'>
@@ -31,12 +69,12 @@ const CartScreen = () => {
                             <div className='CartMainDiv' key={item.id}>
                                 <div className='CartMainDivLeft'>
                                     <div className='CartMainDivLeftImgDiv'>
-                                        <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CartMainDivLeftImg' alt='Hoodie' />
+                                        <img src={`http://127.0.0.1:8000${item.product.frontImage}`} className='CartMainDivLeftImg' alt={item.product.name} />
                                     </div>
                                     <div className='CartMainDivLeftInfo'>
                                         <h1>{item.product.name}</h1>
                                         <div className='CartMainDivLeftInfo1'>
-                                            <p>Size: {item.size},</p>
+                                            <p>Size: {item.size.toUpperCase()},</p>
                                             <p>Color: {item.product.color}</p>
                                         </div>
                                         <div className='CartMainDivLeftInfo1'>
@@ -45,7 +83,9 @@ const CartScreen = () => {
                                     </div>
                                 </div>
                                 <div className='CartMainDivMid'>
-                                    <input type='number' className='CartMainDivMidInp' placeholder='0' value={item.quantity} onChange={() => item.quantity} />
+                                    <input type='number' className='CartMainDivMidInp' value={item.quantity} disabled={true} />
+                                    <img src={PlusIcon} alt='Plus Icon' className='CartMainDivMidIcon' onClick={() => AddItemToCart(item.product.id, item.size)} />
+                                    {/* <a href="https://www.flaticon.com/free-icons/add" title="add icons">Add icons created by Pixel perfect - Flaticon</a> */}
                                 </div>
                                 <div className='CartMainDivRight'>
                                     <p>${item.item_total}</p>
@@ -55,7 +95,7 @@ const CartScreen = () => {
                                     <div className='CartMainDivBtn'>
                                         <img src={LikeIcon} className='CartMainDivBtnIcon' alt='Hart Icon' />
                                     </div>
-                                    <div className='CartMainDivBtn'>
+                                    <div className='CartMainDivBtn' onClick={() => DeleteItemFromCart(item.id)}>
                                         <p>Remove</p>
                                     </div>
                                 </div>
@@ -63,7 +103,7 @@ const CartScreen = () => {
                         )): <h1>Cart is empty</h1>}    
                         <div className='CartMainButtonsDiv'>
                             <div className='CartMainBtnDiv'>
-                                <div className='CartMainBtn'>
+                                <div className='CartMainBtn' onClick={() => navigation('/')}>
                                     <img src={LeftArrowIcon} className='CartMainBtnIcon' alt='Arrow Left' />
                                     {/* <a href="https://www.flaticon.com/free-icons/back" title="back icons">Back icons created by Roundicons - Flaticon</a> */}
                                     <p>Continue Shopping</p>

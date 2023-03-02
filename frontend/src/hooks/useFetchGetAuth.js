@@ -8,21 +8,23 @@ const useFetchGetAuth = (url) => {
 
     useEffect(() => {
       const csrftoken = GetCookie('csrftoken');
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': csrftoken,
-          'Authorization' : 'Bearer ' + accessToken
-        }
-      })
-      .then(res => res.json())
-      .then((data) => {
-        setData(data)
-      })
-      .catch(err => {
-        console.log(err.message)
-      })
+      if (accessToken){
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization' : 'Bearer ' + accessToken
+          }
+        })
+        .then(res => res.json())
+        .then((data) => {
+          setData(data)
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+      }
     }, [url])
 
     return {data}

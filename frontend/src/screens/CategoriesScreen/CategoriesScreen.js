@@ -1,6 +1,5 @@
 import React from 'react'
 import './CategoriesScreen.css'
-import Tee1Img from '../../static/images/tee1.jpg'
 import CategoryBlockBig from '../../components/CategoryBlockBig/CategoryBlockBig'
 import useFetchGet from '../../hooks/useFetchGet'
 
@@ -21,9 +20,11 @@ const CategoriesScreen = () => {
                 </div>
                 <div className='CategoriesMain'>
                     {data && data.map((item) => (
-                        <div key={item.id}>
-                            <CategoryBlockBig img={item.img} name={item.name} slug={item.slug}/>
-                        </div>
+                        <>
+                            <div key={item.id}>
+                                <CategoryBlockBig img={item.img} name={item.name} slug={item.slug}/>
+                            </div>
+                        </>                  
                     ))}
                 </div>
             </div>

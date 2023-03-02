@@ -24,6 +24,22 @@
     overflow-x: scroll;
 }
 
+.DetailsLeft::-webkit-scrollbar {
+    width: 10px;
+}
+  
+.DetailsLeft::-webkit-scrollbar-track {
+    background: white;
+}
+  
+.DetailsLeft::-webkit-scrollbar-thumb {
+    background: #777;
+}
+  
+.DetailsLeft::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .DetailsRightDiv{
     display: flex;
     justify-content: flex-start;
@@ -36,7 +52,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* width: 500px; */
     height: 680px;
 }
 
