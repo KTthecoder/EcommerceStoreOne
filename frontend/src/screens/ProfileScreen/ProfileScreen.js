@@ -3,9 +3,11 @@ import './ProfileScreen.css'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthProvider'
 import { Link } from 'react-router-dom'
+import useFetchGetAuth from '../../hooks/useFetchGetAuth'
 
 const ProfileScreen = () => {
-  const { logoutUser } = useContext(AuthContext)
+  const { logoutUser, accessToken } = useContext(AuthContext)
+  const { data } = useFetchGetAuth('http://127.0.0.1:8000/api/orders')
 
   return (
     <div className='ProfileContainer'>
@@ -18,38 +20,11 @@ const ProfileScreen = () => {
         </div>
       </div>
       <div className='ProfilepMain'>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
-        <Link to={'/account/order/1'} className='ProfilepMainBlock'>
-          <h1>#45643</h1>
-          {/* <p>$879.78</p> */}
-        </Link>
+        {data && data.map((item) => (
+          <Link to={`/account/order/${item.id}`} className='ProfilepMainBlock'>
+            <h1>Order #{item.id}</h1>
+          </Link> 
+        ))}
       </div>
     </div>
   )

@@ -13,6 +13,11 @@ class ProductImagesSerializer(serializers.ModelSerializer):
         model = ProductImagesModel
         fields = '__all__'
 
+class SmallOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderModel
+        fields = '__all__'
+
 # Product Serializer
 class ProductDetailsSerializer(serializers.ModelSerializer):
     productimages = ProductImagesSerializer(read_only = True, many = True)

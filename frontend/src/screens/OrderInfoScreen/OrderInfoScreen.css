@@ -1,0 +1,62 @@
+.OrderInfoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.OrderInfoContainer1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+}
+
+.OrderInfoContainer1Left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.OrderInfoContainer1LeftTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CartMainRightDiv2Blockkk{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CartMainRightDiv2Blockkk1{
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.CartMainRightDiv2Blockkk1:nth-child(1) p:nth-child(1){
+    margin-right: 5px;
+}
+
+.CartMainRightDiv2Blockkk1 p{
+    margin: 0px 10px 15px 0px;
+    font-size: 1.1rem;
+}
+
+@media(min-width: 1190px){
+    .CartMainRightDiv2Blockkk1{
+        flex-direction: row;
+    }
+}

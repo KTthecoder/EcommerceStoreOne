@@ -115,7 +115,6 @@ def ProductDetails(request, slug):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
 # Products By Size checks if product have size if has try to find products that have this size if not returns error
 @api_view(['GET'])
 def ProductsBySize(request, size):

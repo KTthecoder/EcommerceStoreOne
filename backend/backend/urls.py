@@ -60,5 +60,7 @@ urlpatterns = [
     path('api/cart/payment', PaymentPage, name='PaymentPage'),
     path('api/payment/<int:orderId>/accept', FullFillOrder, name='FullFillOrder'),
     path('api/order/quantity', OrderQuantity, name='OrderQuantity'),
+    path('api/orders', ProfileOrders, name='ProfileOrders'),
+    path('api/order/<int:id>', OrderById, name='OrderById'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

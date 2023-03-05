@@ -1,4 +1,4 @@
-from mainApp.serializers import OrderItemSerializer, ShippingAddressSerializer, OrderPaymentSerializer, OrderQuantitySerializer
+from mainApp.serializers import OrderItemSerializer, ShippingAddressSerializer, OrderPaymentSerializer, OrderQuantitySerializer, SmallOrderSerializer
 from mainApp.models import *
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -219,7 +219,42 @@ def PaymentPage(request):
     else:
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def ProfileOrders(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            user = request.user
+            order = OrderModel.objects.filter(user=user, ordered=True) 
+            orderSerializer = SmallOrderSerializer(order, many = True)
 
+            return Response(orderSerializer.data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def OrderById(request, id):
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            user = request.user
+            order = OrderModel.objects.get(id=id, user=user, ordered=True) 
+            orderSerializer = OrderPaymentSerializer(order)
+
+            return Response(orderSerializer.data, status=status.HTTP_200_OK)
+        else:
+            data = {}
+            data['response'] = "User is not authenticated"
+            return Response(data)
+    else:
+        data = {'Error' : 'Bad Request'}
+        return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 # Full Fill Order set ordered to True if order is ordered
 @api_view(['POST'])

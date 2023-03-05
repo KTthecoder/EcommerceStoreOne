@@ -23,16 +23,16 @@ export const Navigation = () => {
     <Routes>
         {/* Without Authentication*/}
         <Route exact path='/' element={<HomeScreen/>} />
-        <Route path='/shop' element={<ShopScreen/>} />
-        <Route path='/categories' element={<CategoriesScreen/>} />
-        <Route path='/categories/:slug' element={<ByCategoryScreen/>} />
-        <Route path='/newest' element={<NewestScreen/>} />
-        <Route path='/on-sale' element={<OnSaleScreen/>} />
-        <Route path='/search/:slug' element={<SearchScreen/>} />
-        <Route path='/login' element={<LoginScren/>} />
-        <Route path='/register' element={<RegisterScreen/>} />
-        <Route path='/product/:slug' element={<ProductDetails/>} />
-        <Route path='/search' element={<SearchScreen/>} />
+        <Route exact path='/shop' element={<ShopScreen/>} />
+        <Route exact path='/categories' element={<CategoriesScreen/>} />
+        <Route exact path='/categories/:slug' element={<ByCategoryScreen/>} />
+        <Route exact path='/newest' element={<NewestScreen/>} />
+        <Route exact path='/on-sale' element={<OnSaleScreen/>} />
+        <Route exact path='/search/:slug' element={<SearchScreen/>} />
+        <Route exact path='/login' element={<LoginScren/>} />
+        <Route exact path='/register' element={<RegisterScreen/>} />
+        <Route exact path='/product/:slug' element={<ProductDetails/>} />
+        <Route exact path='/search' element={<SearchScreen/>} />
         
         {/* User need to be logged In */}
         <Route exact path='/cart' element={<PrivateRoute/>}>
