@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django_resized import ResizedImageField
 
-# Size Choice
 size_choice = (
     ('S', 's'),
     ('M', 'm'),
@@ -23,7 +22,6 @@ color_choice = (
     ('Purple', 'Purple'),
 )
 
-# Product Category Model
 class ProductCategoryModel(models.Model):
     name = models.CharField(max_length=50, blank=False, null=True)
     img = ResizedImageField(force_format="WEBP", quality=80, upload_to="categoryFrontImgs")
@@ -33,7 +31,6 @@ class ProductCategoryModel(models.Model):
     def __str__(self):
         return self.name
 
-# Product Model
 class ProductModel(models.Model):
     name = models.CharField(max_length=250, blank=False, null=True)
     regularPrice = models.DecimalField(max_digits=5, decimal_places=2, blank=False, null=True)
@@ -58,7 +55,6 @@ class ProductModel(models.Model):
     def __str__(self):
         return self.name
 
-# Product Images List
 class ProductImagesModel(models.Model):
     image = ResizedImageField(force_format="WEBP", quality=80, upload_to="productDetailsImgs") 
     alt = models.CharField(max_length=150)
@@ -68,7 +64,6 @@ class ProductImagesModel(models.Model):
     def __str__(self):
         return self.image.url
 
-# Order Model
 class OrderModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     ordered = models.BooleanField(blank=False, null=False)
@@ -83,7 +78,6 @@ class OrderModel(models.Model):
         total = sum(item.item_total for item in items)
         return round(total, 2)
 
-# Order Item Model
 class OrderItemModel(models.Model):
     quantity = models.IntegerField(default=0, null=True, blank=True)
 
@@ -103,7 +97,6 @@ class OrderItemModel(models.Model):
             value = float(self.product.regularPrice) * float(self.quantity)
             return round(value, 2)
 
-# Shipping Address Model
 class ShippingAddressModel(models.Model):
     name = models.CharField(max_length=150, blank=False, null=True)
     lastName = models.CharField(max_length=150, blank=False, null=True)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import GetCookie from '../../components/GetCookie'
 import './CheckoutScreen.css'
 import LeftArrowIcon from '../../static/icons/leftArrow.png'

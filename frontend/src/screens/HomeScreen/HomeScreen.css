@@ -271,12 +271,6 @@
     }
 }
 
-/* @media(max-width: 950px){
-    .HomeMainSectionDiv{
-        flex-wrap: wrap;
-    }
-} */
-
 @media(max-width: 770px){
     .HomeHeader1{
         width: 90%;

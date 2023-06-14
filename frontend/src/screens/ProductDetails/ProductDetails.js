@@ -12,8 +12,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper';
 
 const ProductDetails = () => {
     const { slug } = useParams()
@@ -105,10 +103,6 @@ const ProductDetails = () => {
             <div className='DetailsContainerMid'>
                 <div className='DetailsMidDiv'>
                     <h2 className='DetailsRightH22'>Description</h2>
-                    {/* <p className='DetailsRightP'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra urna at velit varius vehicula. Aliquam eu dui felis. Morbi vel lectus congue ex lobortis tristique. Mauris vel ligula sed ante tincidunt facilisis. Morbi id facilisis quam, quis congue urna. Vivamus sit amet risus sed lorem condimentum pellentesque.</p> */}
-                    {/* <p className='DetailsRightP'>&bull; Fusce at nulla iaculis, ullamcorper lectus id, ultrices sapien.</p>
-                    <p className='DetailsRightP'>&bull; Phasellus ultrices dolor in velit iaculis dictum.</p>
-                    <p className='DetailsRightP'>&bull; Etiam accumsan posuere orci vitae porta. Morbi malesuada mauris vitae faucibus mattis.</p> */}
                     {data && <p className='DetailsRightP'>&bull; {data.description}</p>}
                 </div>
             </div>

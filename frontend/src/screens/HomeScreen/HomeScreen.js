@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Product from '../../components/Product/Product'
-import ProductBig from '../../components/ProductBig/ProductBig'
 import './HomeScreen.css'
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock'
 import useFetchGet from '../../hooks/useFetchGet'

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
 
@@ -10,7 +10,6 @@ const AuthProvider = (props) => {
     let [user, setUser] = useState(() => localStorage.getItem('accessToken') ? jwt_decode(localStorage.getItem('accessToken')) : null )
     let navigate = useNavigate()
     let [loading, setLoading] = useState(true)
-    // let [isLoading, setIsLoading] = useState(true)
 
     const loginUser = async (e) => {
         e.preventDefault()
@@ -48,8 +47,6 @@ const AuthProvider = (props) => {
     }
 
     let updateToken = async () => {
-        // GetToken()
-
         let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
             method: "POST",
             headers: {
@@ -65,8 +62,6 @@ const AuthProvider = (props) => {
             setAccessToken(data.access)
             setUser(jwt_decode(data.access))
             localStorage.setItem('accessToken', JSON.stringify(data.access))
-
-            // GetToken()
         }
         else{
             logoutUser()
@@ -77,71 +72,6 @@ const AuthProvider = (props) => {
         }
     }
 
-    // async function GetToken() {
-    //     fetch('http://127.0.0.1:8000/api/token/verify/', {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             'token' : refreshToken
-    //         })
-    //     })
-    //     .then((data) => data.json())
-    //     .then((data) => {
-    //             if(data['detail']){
-    //                 logoutUser()
-    //             }
-    //             else{
-    //                 try{
-    //                     setRefreshToken(refreshToken)
-                        
-    //                 }
-    //                 catch{
-    //                     console.log('Problem')
-    //                     logoutUser()
-    //                 }
-    //             }
-    //         }
-    //     )
-    //     .catch((err) => {
-    //         logoutUser()
-    //         console.log(err)
-    //     })
-
-    //     fetch('http://127.0.0.1:8000/api/token/verify/', {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             'token' : accessToken
-    //         })
-    //     })
-    //     .then((data) => data.json())
-    //     .then((data) => {
-    //             if(data['detail']){
-    //                 logoutUser()
-    //             }
-    //             else{
-    //                 try{
-    //                     setAccessToken(accessToken)
-    //                     setUser(jwt_decode(accessToken))
-                        
-    //                 }
-    //                 catch{
-    //                     console.log('Problem')
-    //                     logoutUser()
-    //                 }
-    //             }
-    //         }
-    //     )
-    //     .catch((err) => {
-    //         logoutUser()
-    //         console.log(err)
-    //     })   
-    // }
-
     let contextData = {
         user: user,
         loginUser: loginUser,
@@ -151,12 +81,10 @@ const AuthProvider = (props) => {
     }
 
     useEffect(() => {
-        
         if(loading){
             updateToken()
         }
 
-        // After 1 min user will be logged out
         let time = 1000 * 60
         let interval = setInterval(() => {
             if(accessToken){

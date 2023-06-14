@@ -10,20 +10,6 @@
     flex-direction: column;
 }
 
-/* .NavbarContainer::before{
-    background-color: rgba(0, 0, 0, 0.038);
-    content: '';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-} */
-
 .NavbarContainer1{
     display: flex;
     justify-content: space-between;

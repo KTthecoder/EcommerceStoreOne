@@ -1,8 +1,5 @@
 import React from 'react'
 import './OrderInfoScreen.css'
-import LikeIcon from '../../static/icons/like.png'
-import PlusIcon from '../../static/icons/plus.png'
-import photo from '../../static/images/tee1.jpg'
 import useFetchGetAuth from '../../hooks/useFetchGetAuth'
 import { useNavigate, useParams } from 'react-router-dom'
 

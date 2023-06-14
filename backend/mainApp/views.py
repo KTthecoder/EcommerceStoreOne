@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-
 from rest_framework_simplejwt.tokens import RefreshToken
 
 @permission_classes([IsAuthenticated])
@@ -19,9 +18,7 @@ def get_tokens_for_user(request):
     }
     return Response(data, status=status.HTTP_200_OK)
 
-# API List return list of all available reguests
 @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
 def ApiList(request):
     if request.method == 'GET':
         context = {
@@ -44,8 +41,6 @@ def ApiList(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# HomePage shows all categories and all products if exists if not it shows error
 @api_view(['GET'])
 def HomePage(request):
     if request.method == 'GET':
@@ -64,8 +59,6 @@ def HomePage(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Recommended Products show 5 recomended products
 @api_view(['GET'])
 def RecommendedProducts(request):
     if request.method == 'GET':
@@ -82,8 +75,6 @@ def RecommendedProducts(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# All Products show list of all products if exists else return the error message
 @api_view(['GET'])
 def AllProducts(request):
     if request.method == 'GET':
@@ -99,7 +90,6 @@ def AllProducts(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-# Product Details show product by slug
 @api_view(['GET'])
 def ProductDetails(request, slug):
     if request.method == 'GET':
@@ -115,7 +105,6 @@ def ProductDetails(request, slug):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-# Products By Size checks if product have size if has try to find products that have this size if not returns error
 @api_view(['GET'])
 def ProductsBySize(request, size):
     if request.method == 'GET':
@@ -156,8 +145,6 @@ def ProductsBySize(request, size):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Products By Color checks if product have color if has try to find products that have this color if not returns error
 @api_view(['GET'])
 def ProductsByColor(request, color):
     if request.method == 'GET':
@@ -205,8 +192,6 @@ def ProductsByColor(request, color):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Products Sorting show product ordered by method given if there's no method gives error
 @api_view(['GET'])
 def ProductsSorting(request, sortMethod):
     if request.method == 'GET':
@@ -240,8 +225,6 @@ def ProductsSorting(request, sortMethod):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Products On Sale shows products on sale if there are any but if not shows error message
 @api_view(['GET'])
 def ProductsOnSale(request):
     if request.method == 'GET':
@@ -257,8 +240,6 @@ def ProductsOnSale(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# All Categories show list of all categories if exists else return the error message
 @api_view(['GET'])
 def AllCategories(request):
     if request.method == 'GET':
@@ -274,8 +255,6 @@ def AllCategories(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Products By Category show list of products sorted by category
 @api_view(['GET'])
 def ProductsByCategory(request, category):
     if request.method == 'GET':
@@ -296,8 +275,6 @@ def ProductsByCategory(request, category):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Search Product finds product with given words
 @api_view(['GET'])
 def SearchProduct(request, search):
     if request.method == 'GET':

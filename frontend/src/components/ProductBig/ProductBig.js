@@ -8,7 +8,6 @@ const ProductBig = ({img, name, normalPrice, discountPrice, slug, alt}) => {
   return (
     <div className='ProductContainerBig' onClick={() => navigation(`/product/${slug}`)}>
       <img className='ProductImgBig' src={'http://127.0.0.1:8000' + img} alt={alt} />
-      {/* <div className='ProductImgBig' style={{backgroundImage: `url(http://127.0.0.1:8000${img})`}}></div> */}
       <div className='ProductInfo'>
         <h1 className='ProductInfoH1'>{name}</h1>
         <div className='ProductInfoPriceDiv'>

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const RegisterScreen = () => {
   return (
     <div className='LoginContainer'>
-        {/* <div className='LoginDivBanner'></div> */}
         <div className='LoginContainer1'>
             <div className='LoginContainer2'>
                 <form className='LoginDiv'>

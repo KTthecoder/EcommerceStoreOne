@@ -10,24 +10,12 @@ import useFetchGetAuth from '../hooks/useFetchGetAuth'
 export const Navbar = () => {
     const [show, setShow] = useState(false)
     const navigation = useNavigate()
-    // const [showSearch, setShowSearch] = useState(false)
     const location = useLocation()
     const { data } = useFetchGetAuth('http://127.0.0.1:8000/api/order/quantity')
 
-    // const ToggleSearch = () => {
-    //     if(showSearch == false){
-    //         setShowSearch(true)
-    //     }
-    //     else{
-    //         setShowSearch(false)
-    //     }
-    // }
-
     useEffect(() => {
         setShow(false)
-        // setShowSearch(false)
     }, [location])
-    
 
     return (
         <div className='NavbarContainer'>
@@ -83,13 +71,6 @@ export const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className={showSearch ? 'NavbarSearchBar' : 'NavbarSearchNone'}>
-                <div className='NavbarSearchBar1'>
-                    <img src={SearchIcon} className='NavbarSearchRightIcon' alt='Search Icon' /> */}
-                    {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a> */}
-                    {/* <input type='text' className='NavbarSearchBarInp' placeholder='Search...' />
-                </div>
-            </div> */}
         </div>
     )
 }

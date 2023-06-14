@@ -5,7 +5,6 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-# Create order if not exists and show products if there are any in a cart
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def CartPage(request):
@@ -28,8 +27,6 @@ def CartPage(request):
         data = {'Error' : 'Method not allowed'}
         return Response(data, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-
-# Add Product adds product to shopping cart (Adds orderItem to OrderModel)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def AddProduct(request, productId, size):
@@ -57,8 +54,6 @@ def AddProduct(request, productId, size):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Remove Product removes product from shopping cart (Removes orderItem from OrderModel)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def RemoveProduct(request, orderItemId):
@@ -86,8 +81,6 @@ def RemoveProduct(request, orderItemId):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-#Add Shipping Address gets shipping data from form and save it in database
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def AddShippingAddress(request):
@@ -109,8 +102,6 @@ def AddShippingAddress(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Show Shipping Address displays shipping address for current order of user
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def ShowShippingAddress(request):
@@ -131,8 +122,6 @@ def ShowShippingAddress(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Shipping Address Exists shows if shipping address exists
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def ShippingAddressExists(request):
@@ -156,8 +145,6 @@ def ShippingAddressExists(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Shipping Address Exists shows if shipping address exists
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def ShippingAddressEdit(request):
@@ -200,8 +187,6 @@ def ShippingAddressEdit(request):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-
-# Payment Page shows list of items in cart from order and shipping address
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def PaymentPage(request):
@@ -256,7 +241,6 @@ def OrderById(request, id):
         data = {'Error' : 'Bad Request'}
         return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-# Full Fill Order set ordered to True if order is ordered
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def FullFillOrder(request, orderId):
@@ -274,8 +258,6 @@ def FullFillOrder(request, orderId):
         data['response'] = "User is not authenticated"
         return Response(data)
 
-
-# Full Fill Order set ordered to True if order is ordered
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def OrderQuantity(request):
